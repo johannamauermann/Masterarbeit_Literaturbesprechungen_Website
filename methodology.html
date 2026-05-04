@@ -48,7 +48,6 @@
       margin-bottom: 6px;
     }
 
-    /* ── Step-by-step pipeline ── */
     .pipeline {
       margin: 36px 0;
       position: relative;
@@ -62,7 +61,6 @@
       position: relative;
     }
 
-    /* vertical connector line between steps */
     .step:not(:last-child) .step-spine::after {
       content: "";
       display: block;
@@ -153,7 +151,6 @@
       font-size: 0.92rem;
     }
 
-    /* example snippet */
     .text-snippet {
       font-size: 0.82rem;
       line-height: 1.6;
@@ -180,34 +177,33 @@
     }
 
     .nav-links {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 40px;
-        padding-top: 16px;
-        border-top: 1px solid rgba(0,0,0,0.15);
-        }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0,0,0,0.15);
+    }
 
-        .back-link,
-        .home-link,
-        .forward-link {
-        font-family: "Playfair Display", serif;
-        font-size: 0.9rem;
-        color: #2b2b2b;
-        text-decoration: none;
-        }
+    .back-link,
+    .home-link,
+    .forward-link {
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
 
-        .back-link:hover,
-        .home-link:hover,
-        .forward-link:hover {
-        text-decoration: underline;
-        }
+    .back-link:hover,
+    .home-link:hover,
+    .forward-link:hover {
+      text-decoration: underline;
+    }
 
-        .home-link {
-        color: rgba(0,0,0,0.45);
-        font-size: 0.82rem;
-        }
-
+    .home-link {
+      color: rgba(0,0,0,0.45);
+      font-size: 0.82rem;
+    }
 
     @media (max-width: 600px) {
       .step {
@@ -251,7 +247,7 @@
 
     <h2>Überblick</h2>
     <p>
-      Die Arbeit verfolgt einen mehrschrittigen, LLM-gestützten Workflow, der <em>Distant Reading</em> und <em>Close Reading</em> miteinander verbindet. Ausgangspunkt ist jeweils eine historische Zeitungsseite der <em>Kölnischen Zeitung</em>; das Ergebnis ist ein strukturierter, annotierter Rezensionskorpus, der anschließend explorativ ausgewertet werden kann. Die einzelnen Schritte &#8211; von der Vorauswahl über die Extraktion bis zur inhaltlichen Anreicherung &#8211; werden im Folgenden anhand eines durchgehenden Beispiels illustriert.
+      Die Arbeit verfolgt einen mehrschrittigen, LLM-gestützten Workflow, der <em>Distant Reading</em> und <em>Close Reading</em> miteinander verbindet. Ausgangspunkt sind historische Zeitungsseiten der <em>Kölnischen Zeitung</em>; das Ergebnis ist ein strukturierter, annotierter Rezensionskorpus, der anschließend explorativ ausgewertet werden kann. Die einzelnen Schritte &#8211; von der Vorauswahl über die Extraktion bis zur inhaltlichen Anreicherung &#8211; werden im Folgenden anhand eines durchgehenden Beispiels illustriert.
     </p>
 
     <div class="section-rule"></div>
@@ -259,7 +255,7 @@
 
     <div class="pipeline">
 
-      <!-- Schritt 1 -->
+      <!-- ═══ Schritt 1 ═══ -->
       <div class="step">
         <div class="step-spine">
           <div class="step-number">1</div>
@@ -268,19 +264,26 @@
           <span class="step-tag">Vorauswahl</span>
           <h3>Keyword-Filterung der Zeitungsseiten</h3>
           <p>
-            Nicht jede der 224.927 Seiten der <em>Kölnischen Zeitung</em> enthält eine Rezension. Um den Verarbeitungsaufwand zu reduzieren, werden zunächst über eine Keyword-Liste (z.&#8239;B. <em>Literatur, Dichter, Roman, Leser, Poesie</em>) gezielt solche Seiten ausgewählt, auf denen Rezensionen wahrscheinlich sind. In die weitere Verarbeitung kommen nur Seiten, auf denen mindestens zwei der validierten Keywords auftreten.
+            Nicht jede der 224.927 Seiten der <em>Kölnischen Zeitung</em> im Zeitraum 1814&#8211;1900 enthält eine Rezension. Um den Verarbeitungsaufwand zu reduzieren, werden zunächst über eine Keyword-Liste (z.&#8239;B. <em>Literatur, Dichter, Roman, Leser, Poesie</em>) gezielt solche Seiten ausgewählt, auf denen Rezensionen wahrscheinlich sind. In die weitere Verarbeitung kommen nur Seiten, auf denen mindestens zwei der ausgewählten Keywords auftreten.
           </p>
           <p>
             Aus diesem vorgefilterten Pool werden anschließend pro Jahr jeweils 20 Seiten zufällig ausgewählt &#8211; insgesamt 1.740 Seiten für den Zeitraum 1814&#8211;1900.
           </p>
           <div class="text-snippet">
-            <em>Beispielseite (Kölnische Zeitung, 12. März 1856, S.&#8239;3):</em><br>
-            Unstrukturierter OCR-Fließtext, ca. 3.000&#8211;5.000 Wörter, ohne Artikelgrenzen. Enthält u.&#8239;a. politische Berichte, eine Buchbesprechung und Werbeanzeigen &#8211; nicht explizit voneinander getrennt.
+            <em>Beispielseite (Kölnische Zeitung, Sonntag 13. Oktober [1895], S.&#8239;3):</em><br>
+            <em>Unstrukturierter OCR-Fließtext, ohne Artikelgrenzen, der Keywords enthält. Ob hier eine oder mehrere Rezensionen enthalten sein könnten, gilt es herauszufinden.</em><br>
+            <details>
+              <summary style="cursor:pointer; font-style:normal; font-family:'Playfair Display', serif; font-size:0.88rem; margin-top:8px;">Originaltext einblenden ↓</summary>
+              <div style="margin-top:10px; max-height:300px; overflow-y:auto; font-style:normal; color:rgba(0,0,0,0.75);">
+                Sonntag , 13 . October . Verantwortlich für den algemneinen Teis = Heinrich van Lok in Köln ; für den Anzeigenteil : F . W . Bales in Köln . Verleger und Drucker : M . DuMont = Schauberg in Köln . Expedition : Breitestraße 72 , 74 . Nr . 2 . Erste Beilage zur Sonntags - Ausgabe . Belletristische Spazirgänge . Wir eröffnen unsern heutigen Spazirgang mit dem neuesten Werke Friedrich Spielhagens „ Susi " [...] Eine bedeutende Geschichte erzählt Elsbeth Meyer in ihrer bei S . Fischer in Berlin erschienenen Erzählung „ Das Drama eines Kindes " . Ein unschuldiges halbwüchsiges Mädchen wittert die absichtsvolle Annäherung der Haushälterin an den heißgeliebten Vater und leidet darunter schwere Seelenqualen . [...] Elsbeth Meyer geht von den genannten Frauen , die alle von modernen Strömungen berührt sind , am kühnsten im Stoffe vor und hat auch in der Technik die scharfe , sogar etwas zu hart wirkende Knappheit des modernsten Stils . [...] Im Thal von Aosta . III . [ Schluß . ] Die Schlösser des valdostanischen Adels . [...] Ungarische Lichtbilder . I . in Wien , Anfang October . Die Magyaren haben die öffentliche Meinung in Wien und Europa zu Gaste geladen [...]
+              </div>
+            </details>
           </div>
         </div>
       </div>
+      <!-- ═══ Ende Schritt 1 ═══ -->
 
-      <!-- Schritt 2 -->
+      <!-- ═══ Schritt 2 ═══ -->
       <div class="step">
         <div class="step-spine">
           <div class="step-number">2</div>
@@ -289,7 +292,7 @@
           <span class="step-tag">Extraktion</span>
           <h3>Rezensionsextraktion via LLM-Prompting</h3>
           <p>
-            Um die Aufmerksamkeit des Modells zu lenken, wird zunächst ein Kontextfenster von ±1.000 Zeichen um jedes gefundene Keyword gebildet. Dieser Ausschnitt wird anschließend per Prompt an das Sprachmodell übergeben (GPT OSS 120B oder Qwen3 235B). Das Modell soll:
+            Um die Aufmerksamkeit des Modells zu lenken und die zu verarbeitende Datenmenge zu reduzieren, wird zunächst ein Kontextfenster von ±1.000 Zeichen um die gefundenen Keywords gebildet. Dieser Ausschnitt wird anschließend gemeinsam mit dem Prompt an das Sprachmodell übergeben (in den Versuchen: GPT OSS 120B und Qwen3 235B). Das Modell soll:
           </p>
           <ul>
             <li>entscheiden, ob eine Rezension im Sinne der Arbeitsdefinition vorliegt,</li>
@@ -299,18 +302,20 @@
           </ul>
           <div class="text-snippet">
             <span class="xml-tag">&lt;review&gt;</span><br>
-            Heines Erstlingswerk […] „ Reise um die Erde nach Japan " ein Touristen […] Daß diese Reise Beschreibung weniger für Gelehrte , als für gebildete Leser überhaupt , und namentlich auch für Frauen geschrieben ist , haben wir schon angedeutet.<br>
+            Eine bedeutende Geschichte erzählt Elsbeth Meyer in ihrer bei S . Fischer in Berlin erschienenen Erzählung „ Das Drama eines Kindes " . Ein unschuldiges halbwüchsiges Mädchen wittert die absichtsvolle Annäherung der Haushälterin an den heißgeliebten Vater und leidet darunter schwere Seelenqualen . Schließlich über Kinde sich schämenden Vater die Pistole in die Hand drücken . Elsbeth Meyer geht von den genannten Frauen , die alle von mo dernen Strömungen berührt sind , am kühnsten im Stoffe vor und hat auch in der Technik die scharfe , sogar etwas zu hart wirkende Knappheit des modernsten Stils .<br>
             <span class="xml-tag">&lt;/review&gt;</span><br>
-            <span class="xml-tag">&lt;justification&gt;</span>Der Text enthält eine externe Bewertung eines Werks aus kritischer Distanz und erfüllt die Kriterien einer Literaturbesprechung.<span class="xml-tag">&lt;/justification&gt;</span>
+            <span class="xml-tag">&lt;justification&gt;</span>Der Text enthält eine externe Bewertung eines Werks aus kritischer Distanz und erfüllt die Kriterien einer Literaturbesprechung.<span class="xml-tag">&lt;/justification&gt;</span><br>
+            <span class="xml-tag">&lt;human_verification_needed&gt;</span>false<span class="xml-tag">&lt;/human_verification_needed&gt;</span>
           </div>
           <div class="eval-box">
             <strong>Evaluation dieses Schritts</strong><br>
-            Abgleich mit manuell erstellter Ground Truth (1.740 Seiten, 633 Rezensionen) über ein Fuzzy-String-Matching-Framework. Metriken: Erfolgsscore, Recall, Precision &#8211; differenziert nach Fehlertypen (<em>under extraction, over extraction, content mismatch</em>). Ergebnis: GPT Erfolgsscore 0,84 / Recall 0,66; Qwen Erfolgsscore 0,81 / Recall 0,88.
+            Abgleich mit manuell erstellter Ground Truth (1.740 Seiten, 633 Rezensionen) über einen Fuzzy-String-Matching-Algorithmus. Das Framework wurde adaptiert aus <em>Oberbichler, S., Mauermann, J., Tran, T., &amp; González-Gallardo, C. (2025). Studying Model Design Biases in LLMs for Multilingual Historical Newspaper Extraction. Lecture Notes in Computer Science, 16097, 263&#8211;286.</em> Metriken: Erfolgsscore, Recall, Precision &#8211; differenziert nach Fehlertypen (<em>under extraction, over extraction, formatting error</em>).
           </div>
         </div>
       </div>
+      <!-- ═══ Ende Schritt 2 ═══ -->
 
-      <!-- Schritt 3 -->
+      <!-- ═══ Schritt 3 ═══ -->
       <div class="step">
         <div class="step-spine">
           <div class="step-number">3</div>
@@ -328,11 +333,24 @@
             <li><strong>Stimme der Rezension:</strong> <em>impersonal / first_person_singular / first_person_plural</em></li>
           </ul>
           <div class="text-snippet">
+            <em>Tatsächlicher Modell-Output für die Rezension von „Das Drama eines Kindes" (Qwen):</em><br><br>
             <span class="xml-tag">&lt;sentiment_overall&gt;</span>positive<span class="xml-tag">&lt;/sentiment_overall&gt;</span><br>
+            <span class="xml-tag">&lt;sentiment_style&gt;</span>positive<span class="xml-tag">&lt;/sentiment_style&gt;</span><br>
+            <span class="xml-tag">&lt;sentiment_content&gt;</span>positive<span class="xml-tag">&lt;/sentiment_content&gt;</span><br>
+            <span class="xml-tag">&lt;sentiment_society&gt;</span>not_mentioned<span class="xml-tag">&lt;/sentiment_society&gt;</span><br>
+            <span class="xml-tag">&lt;sentiment_morality&gt;</span>not_mentioned<span class="xml-tag">&lt;/sentiment_morality&gt;</span><br>
+            <span class="xml-tag">&lt;sentiment_author&gt;</span>positive<span class="xml-tag">&lt;/sentiment_author&gt;</span><br>
+            <span class="xml-tag">&lt;reviewer_voice&gt;</span>impersonal<span class="xml-tag">&lt;/reviewer_voice&gt;</span><br><br>
+            <span class="xml-tag">&lt;title&gt;</span>Das Drama eines Kindes<span class="xml-tag">&lt;/title&gt;</span><br>
+            <span class="xml-tag">&lt;author_name&gt;</span>Elsbeth Meyer<span class="xml-tag">&lt;/author_name&gt;</span><br>
+            <span class="xml-tag">&lt;author_gender&gt;</span>female<span class="xml-tag">&lt;/author_gender&gt;</span><br>
+            <span class="xml-tag">&lt;publisher&gt;</span>S. Fischer in Berlin<span class="xml-tag">&lt;/publisher&gt;</span><br>
             <span class="xml-tag">&lt;category&gt;</span>Belletristik<span class="xml-tag">&lt;/category&gt;</span><br>
-            <span class="xml-tag">&lt;genre&gt;</span>Roman<span class="xml-tag">&lt;/genre&gt;</span><br>
-            <span class="xml-tag">&lt;author_gender&gt;</span>male<span class="xml-tag">&lt;/author_gender&gt;</span><br>
-            <span class="xml-tag">&lt;is_translated&gt;</span>false<span class="xml-tag">&lt;/is_translated&gt;</span>
+            <span class="xml-tag">&lt;genre&gt;</span>Erzählung<span class="xml-tag">&lt;/genre&gt;</span><br>
+            <span class="xml-tag">&lt;is_translation&gt;</span>false<span class="xml-tag">&lt;/is_translation&gt;</span><br>
+            <span class="xml-tag">&lt;source_language&gt;</span>German<span class="xml-tag">&lt;/source_language&gt;</span><br><br>
+            <span class="xml-tag">&lt;completeness&gt;</span>complete<span class="xml-tag">&lt;/completeness&gt;</span><br>
+            <span class="xml-tag">&lt;human_verification_needed&gt;</span>false<span class="xml-tag">&lt;/human_verification_needed&gt;</span>
           </div>
           <div class="eval-box">
             <strong>Evaluation dieses Schritts</strong><br>
@@ -340,8 +358,9 @@
           </div>
         </div>
       </div>
+      <!-- ═══ Ende Schritt 3 ═══ -->
 
-      <!-- Schritt 4 -->
+      <!-- ═══ Schritt 4 ═══ -->
       <div class="step">
         <div class="step-spine">
           <div class="step-number">4</div>
@@ -353,7 +372,7 @@
             Liegen die strukturierten Daten für alle 633 Rezensionen vor, ermöglicht der Korpus quantitative Auswertungen über den gesamten Untersuchungszeitraum &#8211; zum Beispiel:
           </p>
           <ul>
-            <li>Wie entwickelt sich die Rezensionsfrequenz im Verlauf des 19. Jahrhunderts?</li>
+            <li>Wie entwickelt sich die Genre-Zusammensetzung der Rezensionen im 19. Jahrhundert?</li>
             <li>Welche Sentiment-Tendenzen zeigen sich &#8211; und auf welchen Bewertungsdimensionen?</li>
             <li>Wie verändert sich der Anteil übersetzter Werke diachron?</li>
             <li>Welche Unterschiede bestehen bei der Besprechung von Werken weiblicher vs. männlicher Autor:innen?</li>
@@ -363,13 +382,14 @@
           </p>
         </div>
       </div>
+      <!-- ═══ Ende Schritt 4 ═══ -->
 
     </div><!-- end pipeline -->
 
     <div class="nav-links">
-        <a href="corpus.html" class="back-link">← Korpus &amp; Daten</a>
-        <a href="index.html" class="home-link">Startseite</a>
-        <a href="results.html" class="forward-link">Ergebnisse →</a>
+      <a href="corpus.html" class="back-link">← Korpus &amp; Daten</a>
+      <a href="index.html" class="home-link">Startseite</a>
+      <a href="results.html" class="forward-link">Ergebnisse →</a>
     </div>
 
   </div>
@@ -387,8 +407,15 @@
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
-  document.querySelector(".page-content").classList.toggle("shift");
 }
+
+document.addEventListener("click", function(e) {
+  const menu = document.getElementById("sideMenu");
+  const toggle = document.querySelector(".menu-toggle");
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove("open");
+  }
+});
 </script>
 
 </body>

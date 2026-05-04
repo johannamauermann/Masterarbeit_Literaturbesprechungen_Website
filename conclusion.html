@@ -182,12 +182,12 @@
 
     <h3>Workflow</h3>
     <p>
-      Der entwickelte mehrschrittige Workflow verbindet keywordgestützte Vorauswahl, Kontextfensterbildung und promptbasierte Extraktion mit einem strukturierten Anreicherungsschritt für Metadaten und Sentiment. Der <em>human-in-the-loop</em>-Mechanismus über das <code>&lt;human_verification_needed&gt;</code>-Flag erwies sich dabei als effektives Instrument zur gezielten Qualitätssicherung bei begrenzten Ressourcen.
+      Der entwickelte mehrschrittige Workflow verbindet die promptbasierte Extraktion historischer Rezensionen aus Zeitungen mit einem strukturierten Anreicherungsschritt für Metadaten und Sentiment. Der <em>human-in-the-loop</em>-Mechanismus über das <code>&lt;human_verification_needed&gt;</code>-Flag erwies sich dabei als effektives Instrument zur gezielten Qualitätssicherung bei begrenzten Ressourcen.
     </p>
 
     <h3>Modellperformance</h3>
     <p>
-      Beide getesteten Modelle &#8211; GPT OSS 120B und Qwen3 235B &#8211; zeigen ein grundsätzlich einsetzbares, aber jeweils charakteristisches Fehlerprofil: GPT neigt zur Untererfassung weniger prototypischer Rezensionen, Qwen produziert mehr <em>false positives</em>, da intern als Werbung identifizierte Texte dennoch extrahiert werden. Positiv hervorzuheben sind die geringe Halluzinationsrate und die hohe Formatkonformität beider Modelle.
+      Beide getesteten Modelle &#8211; GPT OSS 120B und Qwen3 235B &#8211; erweisen sich als grundsätzlich einsetzbar, zeigen aber jeweils ein charakteristisches Fehlerprofil: GPT neigt zur Untererfassung weniger prototypischer Rezensionen, Qwen produziert mehr <em>false positives</em>, vor allem, da Werbung für Literatur oft extrahiert wird. Positiv hervorzuheben sind die geringe Halluzinationsrate und die hohe Formatkonformität beider Modelle.
     </p>
 
     <div class="highlight-box">
@@ -208,7 +208,7 @@
     <!-- Inhaltliches Fazit -->
     <h2>Inhaltliches Fazit</h2>
     <p>
-      Die Rezensionen der <em>Kölnischen Zeitung</em> offenbaren eine Literaturkritik, die im 19. Jahrhundert zunehmend institutionalisiert wird und dabei aktiv an Kanonisierungsprozessen mitwirkt &#8211; bei gleichzeitig stark ungleicher Sichtbarkeit entlang von Geschlecht und Sprache. Die Befunde sind aufgrund der ausschnittartigen Datenbasis als Hypothesen zu verstehen, die anhand größerer Korpora zu überprüfen wären.
+      Die Rezensionen der <em>Kölnischen Zeitung</em> offenbaren eine Literaturkritik, die im 19. Jahrhundert innerhalb der Zeitung an Bedeutung gewinnt und dabei durch ihre selektive Funktio aktiv an Kanonisierungsprozessen mitwirkt &#8211; bei gleichzeitig stark ungleicher Sichtbarkeit entlang von Geschlecht und Sprache. Die Befunde sind aufgrund der ausschnittartigen Datenbasis als Hypothesen zu verstehen, die anhand größerer Korpora zu überprüfen wären.
     </p>
 
     <div class="closing-quote">
@@ -216,12 +216,12 @@
     </div>
 
     <ul>
-      <li>Die Rezensionsfrequenz steigt ab den 1840er-Jahren deutlich an &#8211; mit der Einführung des Feuilletons als katalysierendem Faktor.</li>
+      <li>Die Rezensionsfrequenz steigt ab den 1840er-Jahren deutlich an &#8211; zu vermuten ist die Einführung des Feuilletons 1838 als katalysierender Faktor.</li>
       <li>Positive Bewertungen dominieren konstant; die Zeitung fungiert primär als Empfehlungs- und Selektionsorgan.</li>
       <li>Der Anteil übersetzter Werke sinkt von über 30&thinsp;% (1830er) auf unter 10&thinsp;% (nach 1870) &#8211; Deutsch als Literatursprache gewinnt an Gewicht.</li>
-      <li>Werke weiblicher Autorinnen machen in keinem Jahrzehnt mehr als 10&thinsp;% der Rezensionen aus und sind fast ausschließlich der Belletristik zugeordnet, oft mit explizit weiblichem Adressatenkreis.</li>
-      <li>Der Roman gewinnt in den 1890er-Jahren an Sichtbarkeit, wird dabei aber häufiger kritisch und metareflexiv verhandelt als andere Genres.</li>
-      <li>Mehrfach besprochene Autor:innen sind häufig noch heute bekannt &#8211; ein Hinweis auf die aktive Rolle der Zeitungskritik bei der Konstruktion literarischer Kanones.</li>
+      <li>Werke weiblicher Autorinnen machen in keinem Jahrzehnt mehr als 10&thinsp;% der Rezensionen aus und sind fast ausschließlich der Belletristik zugeordnet.</li>
+      <li>Besprechungen von Romanen haben in den späteren Jahrzehnten einen höheren Anteil, die Gattung wird dabei aber häufiger kritisch und metareflexiv verhandelt als andere Genres.</li>
+      <li>Mehrfach besprochene Autor:innen, die innerhalb des Datensets identifiziert werden konnten (wie Theodor Storm oder Charles Dickens) sind häufig noch heute bekannt &#8211; ein Hinweis auf die aktive Rolle der Zeitungskritik bei der Konstruktion literarischer Kanones.</li>
     </ul>
 
     <div class="section-rule"></div>
@@ -235,11 +235,11 @@
     <div class="outlook-grid">
       <div class="outlook-item">
         <strong>Korpuserweiterung</strong>
-        Analyse weiterer Jahrgänge oder Zeitungen für robustere diachrone Aussagen und intermeduale Vergleiche.
+        Analyse weiterer Jahrgänge oder Zeitungen für robustere diachrone Aussagen und Vergleiche.
       </div>
       <div class="outlook-item">
         <strong>Datenqualität</strong>
-        LLM-gestützte OCR-Korrektur als Preprocessing-Schritt zur Verbesserung der Textgrundlage.
+        LLM-gestützte OCR-Korrektur als Preprocessing-Schritt zur Verbesserung der Textgrundlage, welche nach aktuellem Stand vielfach stark verrauscht ist.
       </div>
       <div class="outlook-item">
         <strong>Prompt-Optimierung</strong>
@@ -247,7 +247,7 @@
       </div>
       <div class="outlook-item">
         <strong>Entitätsnormalisierung</strong>
-        Verknüpfung von Personen- und Werknamen mit Linked-Data-Quellen (z.&thinsp;B. Wikidata, DNB) für anschlussfähigere Analysen.
+        Verknüpfung von Personen- und Werknamen mit Linked-Data-Quellen (z.&thinsp;B. Wikidata) für anschlussfähigere Analysen.
       </div>
       <div class="outlook-item">
         <strong>Methodenvergleich</strong>
@@ -255,7 +255,7 @@
       </div>
       <div class="outlook-item">
         <strong>Inhaltliche Vertiefung</strong>
-        Gezielte Subkorpusanalysen, z.&thinsp;B. alle negativen Besprechungen, alle Übersetzungen aus dem Französischen, oder alle Ich-Perspektiven.
+        Gezielte Subkorpusanalysen, z.&thinsp;B. alle negativen Besprechungen, alle Übersetzungen aus dem Französischen, oder alle Rezensionen aus Ich-Perspektive.
       </div>
     </div>
 
