@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Einleitung – Literaturbesprechungen in historischen Zeitungen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 40px 0 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 6px;
+    }
+
+    .intro-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .research-question {
+      background: #f6f1e5;
+      border-left: 4px solid #2b2b2b;
+      padding: 16px 20px;
+      margin: 30px 0;
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+      margin: 40px 0 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">≡</button>
+
+<nav class="menu-text" id="sideMenu">
+  <a href="index.html">Startseite</a>
+  <a href="introduction.html">Einleitung</a>
+  <a href="methodology.html">Methodik</a>
+  <a href="corpus.html">Korpus</a>
+  <a href="results.html">Ergebnisse</a>
+  <a href="discussion.html">Diskussion</a>
+</nav>
+
+<div class="page-content">
+  <header class="masthead">
+    <h1>Einleitung</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="intro-body">
+
+    <h2>Forschungslücke &amp; Ausgangspunkt</h2>
+    <p>
+      Literaturrezensionen in historischen Tageszeitungen bieten ein bislang untergenutztes Erkenntnispotenzial: Sie fungieren als zentrale Instanz literarischer Öffentlichkeit, geben Aufschluss über die literarischen Interessen einer breiten Masse und beeinflussen, welche Werke Aufmerksamkeit erhalten. Gleichzeitig bilden sie ein Spiegelbild dessen, was zu einem bestimmten Zeitpunkt als <em>besprechenswert</em> galt. Trotz ihrer 
+  kulturhistorischen Relevanz wurde die Literaturkritik, wie Anz &amp; Baasner 
+  (2004, S. 7) konstatieren, „von der Literaturwissenschaft bislang erheblich 
+  unterschätzt, die literaturkritische Praxis kaum untersucht".
+    </p>
+
+    <p class="source-note">
+      <em>Anz, T., &amp; Baasner, R. (2004). Vorwort. In <em>Literaturkritik. 
+      Geschichte, Theorie, Praxis</em> (S. 7–12). C. H. Beck.</em>
+    </p>
+
+    <div class="section-rule"></div>
+
+    <h2>Herausforderungen der Materialgrundlage</h2>
+    <p>
+      Die Erschließung historischer Rezensionen aus Zeitungsdigitalisaten stellt eine komplexe Aufgabe dar. Rezensionen sind im Fließtext historischer Zeitungsseiten nicht explizit als solche markiert, sondern nur kontextuell erkennbar – eingebettet zwischen politischen Berichten, Werbeanzeigen und anderen Textsorten, die ein sehr ähnliches literarisches Vokabular nutzen. Hinzu kommt die variierende OCR-Qualität historischer Digitalisate, die maschinelle Verarbeitungsschritte erheblich erschwert.
+    </p>
+    <p>
+      Etablierte Machine-Learning-Verfahren wie BERT stoßen hier an ihre Grenzen: Für historische deutsche Zeitungsrezensionen existieren keine annotierten Trainingsdaten, deren Erstellung nur im Rahmen größerer Forschungsprojekte mit mehreren Annotator:innen leistbar wäre. Für die deutsche Sprache existiert nach aktuellem Stand ein solches Datenset nicht.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <h2>Warum LLMs?</h2>
+    <p>
+      Auch ohne über Trainingsdaten zu verfügen, die aufwändig in der Erstellung sind, bieten Large Language Models (LLMs) durch ihre Zero-Shot-Fähigkeit und ihr kontextuelles Sprachverständnis einen vielversprechenden, potentiell skalierbaren Ansatz zur Erschließung dieser bisher untererforschten Quellengattung.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <h2>Fallbeispiel: Die <em>Kölnische Zeitung</em></h2>
+    <p>
+      Als Fallbeispiel dient die <em>Kölnische Zeitung</em>, eine der bedeutendsten überregionalen deutschen Tageszeitungen des 19. Jahrhunderts. Ihre Eignung für die vorliegende Untersuchung begründet sich in mehreren Faktoren: Als Leitmedium innerhalb der deutschen Zeitungslandschaft mit liberal-nationaler Ausrichtung besaß sie eine breite Leserschaft. Mit der Einführung einer festen Feuilleton-Rubrik im Jahr 1838 etablierte die Zeitung früh einen systematischen Ort für Literaturbesprechungen. Nicht zuletzt ermöglicht die digitale Verfügbarkeit der Jahrgänge 1803–1945 über die API der Deutschen Digitalen Bibliothek eine computergestützte Weiterverarbeitung der OCR-Texte.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <h2>Forschungsfrage</h2>
+    <div class="research-question">
+      „Wie entwickeln sich Literaturrezensionen in der Kölnischen Zeitung im Verlauf des 19. Jahrhunderts? Inwieweit können LLMs Korpusaufbau, -anreicherung und das Auffinden systematischer Muster unterstützen?"
+    </div>
+
+    <div class="section-rule"></div>
+
+    <h2>Duales Forschungsinteresse</h2>
+    <p>
+      Die Arbeit verfolgt ein doppeltes Erkenntnisziel. Inhaltlich soll anhand von 1.740 Zeitungsseiten (je 20 zufällig ausgewählte Seiten pro Jahr, 1814–1900) untersucht werden, wie sich Rezensionen in der <em>Kölnischen Zeitung</em> diachron entwickeln: welche Genres besprochen werden, wie bewertet wird und welche gesellschaftlichen Muster – etwa hinsichtlich des Geschlechts der rezensierten Autor:innen – sichtbar werden.
+    </p>
+    <p>
+      Methodisch steht zugleich die kritische Evaluation des LLM-Einsatzes im Vordergrund: Wie gut eignen sich aktuelle Sprachmodelle für die Extraktion und Annotation historischer geisteswissenschaftlicher Daten unter erschwerten Bedingungen – und wo liegen die Grenzen dieses Ansatzes?
+    </p>
+
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+  </div>
+</div>
+
+<div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+</script>
+
+</body>
+</html>

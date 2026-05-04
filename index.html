@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Literaturbesprechungen in historischen Zeitungen</title>
+
+  <!-- newspaper-like fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-toggle" onclick="toggleMenu()">≡</button>
+
+<nav class="menu-text" id="sideMenu">
+    <a href="index.html">Startseite</a>
+    <a href="methodology.html">Methodik</a>
+    <a href="corpus.html">Korpus</a>
+    <a href="results.html">Ergebnisse</a>
+    <a href="discussion.html">Diskussion</a>
+</nav>
+<div class="page-content">
+  <header class="masthead">
+    <h1>Historische Literaturbesprechungen</h1>
+    <div class="rule"></div>
+  </header>
+
+  <main class="paper">
+
+    <a href="introduction.html" class="article">
+      <h2>Einleitung</h2>
+      <h3>Worum es in der Masterarbeit geht</h3>
+      <p>Dass Literaturbesprechungen, insbesondere historische aus Massenmedien wie der Zeitung, noch unzureichend quantitativ untersucht wurden, erscheint als Forschungskonsens. Warum jedoch ist das überhaupt relevant?</p>
+      <span class="cta">Weiterlesen »</span>
+    </a>
+
+    <a href="methodology.html" class="article">
+      <h2>Methodik</h2>
+      <h3>Ansätze &amp; Verfahren</h3>
+      <p>LLM-gestützte Extraktion und Annotation historischer Rezensionen aus der <em>Kölnischen Zeitung</em> – ein mehrschrittiger Workflow von der Keyword-Vorauswahl bis zur strukturierten Korpusanreicherung.</p>
+      <span class="cta">Mehr erfahren »</span>
+    </a>
+
+    <a href="results.html" class="article large">
+      <h2>Literaturbesprechungen im 19. Jahrhundert</h2>
+      <h3>Befunde &amp; Einsichten</h3>
+      <p>Wie entwickeln sich Rezensionen in der <em>Kölnischen Zeitung</em> zwischen 1814 und 1900? Welche Genres, Geschlechter und Sprachen werden sichtbar – und welche nicht? Zentrale Ergebnisse der explorativen Analyse.</p>
+      <span class="cta">Zu den Ergebnissen »</span>
+    </a>
+
+    <a href="corpus.html" class="article">
+      <h2>Korpus &amp; Daten</h2>
+      <h3>Quellen &amp; Datenbasis</h3>
+      <p>1.740 Zeitungsseiten der <em>Kölnischen Zeitung</em> (1814–1900), erschlossen über die API der Deutschen Digitalen Bibliothek. 633 manuell verifizierte Rezensionen bilden die Grundlage der Analyse.</p>
+      <span class="cta">Mehr entdecken »</span>
+    </a>
+
+    <a href="discussion.html" class="article">
+      <h2>Diskussion &amp; Limitationen</h2>
+      <h3>Biases &amp; Methodenkritik</h3>
+      <p>Modellspezifische Fehlerprofile, die Grenzen des Zero-Shot-Ansatzes und die inhärente Interpretativität der Aufgabe: eine kritische Reflexion des LLM-Einsatzes für historische geisteswissenschaftliche Daten.</p>
+      <span class="cta">Mehr lesen »</span>
+    </a>
+
+    <a href="conclusion.html" class="article">
+      <h2>Fazit &amp; Ausblick</h2>
+      <h3>Ergebnisse &amp; Perspektiven</h3>
+      <p>Ein skalierbarer Workflow zur LLM-gestützten Korpusbildung, reproduzierbare Evaluationsansätze und offene Forschungsperspektiven für die quantitative Geschichte der Literaturkritik.</p>
+      <span class="cta">Zum Fazit »</span>
+    </a>
+
+    <div class="article">
+    <h2>Forschungsposter</h2>
+    <h3>Übersicht der Masterarbeit</h3>
+
+    <a href="img/poster_ma_mauermann.pdf" target="_blank">
+      <img src="img/poster_preview.jpg" alt="Vorschau des Forschungsposters" style="width:100%; max-width:300px; display:block; margin:10px auto; cursor:pointer;">
+    </a>
+
+    <p style="text-align:center;">Klicken zum Öffnen</p>
+  </div>
+
+  </main>
+  <div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+</script>
+
+</body>
+</html>

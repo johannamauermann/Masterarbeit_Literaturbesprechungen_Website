@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Methodik – Literaturbesprechungen in historischen Zeitungen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 40px 0 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 6px;
+    }
+
+    .intro-body h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      margin: 28px 0 8px;
+      font-style: italic;
+    }
+
+    .intro-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .intro-body ul {
+      padding-left: 1.3em;
+      margin: 10px 0;
+    }
+
+    .intro-body li {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+
+    /* ── Step-by-step pipeline ── */
+    .pipeline {
+      margin: 36px 0;
+      position: relative;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0 20px;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    /* vertical connector line between steps */
+    .step:not(:last-child) .step-spine::after {
+      content: "";
+      display: block;
+      width: 2px;
+      background: rgba(0,0,0,0.18);
+      position: absolute;
+      top: 48px;
+      left: 23px;
+      bottom: -24px;
+    }
+
+    .step-spine {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border: 2px solid #2b2b2b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: #f4ecd8;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-body {
+      padding: 4px 0 36px;
+    }
+
+    .step-body h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin: 6px 0 10px;
+      font-style: normal;
+      border: none;
+    }
+
+    .step-body p {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin: 8px 0;
+    }
+
+    .step-body ul {
+      padding-left: 1.2em;
+      margin: 8px 0;
+    }
+
+    .step-body li {
+      font-size: 0.91rem;
+      line-height: 1.7;
+      margin-bottom: 5px;
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.08);
+      border-radius: 2px;
+      padding: 2px 8px;
+      margin-bottom: 6px;
+      font-family: "Libre Baskerville", serif;
+    }
+
+    .eval-box {
+      background: #f0e8d0;
+      border-left: 3px solid rgba(0,0,0,0.35);
+      padding: 10px 16px;
+      margin: 14px 0 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .eval-box strong {
+      font-family: "Playfair Display", serif;
+      font-size: 0.92rem;
+    }
+
+    /* example snippet */
+    .text-snippet {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      font-style: italic;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 10px 14px;
+      margin: 12px 0;
+      color: rgba(0,0,0,0.65);
+    }
+
+    .xml-tag {
+      font-style: normal;
+      font-family: "Libre Baskerville", serif;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+      margin: 40px 0 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .step {
+        grid-template-columns: 36px 1fr;
+        gap: 0 14px;
+      }
+      .step-number {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+      }
+      .step:not(:last-child) .step-spine::after {
+        left: 17px;
+        top: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">&#8801;</button>
+
+<nav class="menu-text" id="sideMenu">
+  <a href="index.html">Startseite</a>
+  <a href="introduction.html">Einleitung</a>
+  <a href="methodology.html">Methodik</a>
+  <a href="corpus.html">Korpus</a>
+  <a href="results.html">Ergebnisse</a>
+  <a href="discussion.html">Diskussion</a>
+  <a href="conclusion.html">Fazit</a>
+</nav>
+
+<div class="page-content">
+  <header class="masthead">
+    <h1>Methodik</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="intro-body">
+
+    <h2>Überblick</h2>
+    <p>
+      Die Arbeit verfolgt einen mehrschrittigen, LLM-gestützten Workflow, der <em>Distant Reading</em> und <em>Close Reading</em> miteinander verbindet. Ausgangspunkt ist jeweils eine historische Zeitungsseite der <em>Kölnischen Zeitung</em>; das Ergebnis ist ein strukturierter, annotierter Rezensionskorpus, der anschließend explorativ ausgewertet werden kann. Die einzelnen Schritte &#8211; von der Vorauswahl über die Extraktion bis zur inhaltlichen Anreicherung &#8211; werden im Folgenden anhand eines durchgehenden Beispiels illustriert.
+    </p>
+
+    <div class="section-rule"></div>
+    <h2>Der Workflow Schritt für Schritt</h2>
+
+    <div class="pipeline">
+
+      <!-- Schritt 1 -->
+      <div class="step">
+        <div class="step-spine">
+          <div class="step-number">1</div>
+        </div>
+        <div class="step-body">
+          <span class="step-tag">Vorauswahl</span>
+          <h3>Keyword-Filterung der Zeitungsseiten</h3>
+          <p>
+            Nicht jede der 224.927 Seiten der <em>Kölnischen Zeitung</em> enthält eine Rezension. Um den Verarbeitungsaufwand zu reduzieren, werden zunächst über eine Keyword-Liste (z.&#8239;B. <em>Literatur, Dichter, Roman, Leser, Poesie</em>) gezielt solche Seiten ausgewählt, auf denen Rezensionen wahrscheinlich sind. In die weitere Verarbeitung kommen nur Seiten, auf denen mindestens zwei der validierten Keywords auftreten.
+          </p>
+          <p>
+            Aus diesem vorgefilterten Pool werden anschließend pro Jahr jeweils 20 Seiten zufällig ausgewählt &#8211; insgesamt 1.740 Seiten für den Zeitraum 1814&#8211;1900.
+          </p>
+          <div class="text-snippet">
+            <em>Beispielseite (Kölnische Zeitung, 12. März 1856, S.&#8239;3):</em><br>
+            Unstrukturierter OCR-Fließtext, ca. 3.000&#8211;5.000 Wörter, ohne Artikelgrenzen. Enthält u.&#8239;a. politische Berichte, eine Buchbesprechung und Werbeanzeigen &#8211; nicht explizit voneinander getrennt.
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 2 -->
+      <div class="step">
+        <div class="step-spine">
+          <div class="step-number">2</div>
+        </div>
+        <div class="step-body">
+          <span class="step-tag">Extraktion</span>
+          <h3>Rezensionsextraktion via LLM-Prompting</h3>
+          <p>
+            Um die Aufmerksamkeit des Modells zu lenken, wird zunächst ein Kontextfenster von ±1.000 Zeichen um jedes gefundene Keyword gebildet. Dieser Ausschnitt wird anschließend per Prompt an das Sprachmodell übergeben (GPT OSS 120B oder Qwen3 235B). Das Modell soll:
+          </p>
+          <ul>
+            <li>entscheiden, ob eine Rezension im Sinne der Arbeitsdefinition vorliegt,</li>
+            <li>den Rezensionstext innerhalb von <code>&lt;review&gt;</code>-Tags extrahieren,</li>
+            <li>die Entscheidung in einem <code>&lt;justification&gt;</code>-Tag begründen,</li>
+            <li>bei Unsicherheit <code>&lt;human_verification_needed&gt;true&lt;/human_verification_needed&gt;</code> setzen.</li>
+          </ul>
+          <div class="text-snippet">
+            <span class="xml-tag">&lt;review&gt;</span><br>
+            Heines Erstlingswerk […] „ Reise um die Erde nach Japan " ein Touristen […] Daß diese Reise Beschreibung weniger für Gelehrte , als für gebildete Leser überhaupt , und namentlich auch für Frauen geschrieben ist , haben wir schon angedeutet.<br>
+            <span class="xml-tag">&lt;/review&gt;</span><br>
+            <span class="xml-tag">&lt;justification&gt;</span>Der Text enthält eine externe Bewertung eines Werks aus kritischer Distanz und erfüllt die Kriterien einer Literaturbesprechung.<span class="xml-tag">&lt;/justification&gt;</span>
+          </div>
+          <div class="eval-box">
+            <strong>Evaluation dieses Schritts</strong><br>
+            Abgleich mit manuell erstellter Ground Truth (1.740 Seiten, 633 Rezensionen) über ein Fuzzy-String-Matching-Framework. Metriken: Erfolgsscore, Recall, Precision &#8211; differenziert nach Fehlertypen (<em>under extraction, over extraction, content mismatch</em>). Ergebnis: GPT Erfolgsscore 0,84 / Recall 0,66; Qwen Erfolgsscore 0,81 / Recall 0,88.
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 3 -->
+      <div class="step">
+        <div class="step-spine">
+          <div class="step-number">3</div>
+        </div>
+        <div class="step-body">
+          <span class="step-tag">Anreicherung</span>
+          <h3>Metadaten- und Sentiment-Extraktion</h3>
+          <p>
+            Die 633 verifizierten Rezensionen werden in einem zweiten Prompt-Schritt strukturiert angereichert. Das Modell extrahiert und klassifiziert für jede Rezension:
+          </p>
+          <ul>
+            <li><strong>Bibliographische Angaben:</strong> Autor:in, Titel, Verlag, Erscheinungssprache, Übersetzungsstatus</li>
+            <li><strong>Kategorisierung:</strong> Genre (<em>Roman, Lyrik, Drama, Novelle …</em>), Kategorie (<em>Belletristik / Gelehrte Literatur / Gebrauchsliteratur</em>), Geschlecht der Autor:in</li>
+            <li><strong>Sentiment-Dimensionen:</strong> Gesamtbewertung, Stil, Inhalt, Autor:in, Gesellschaft, Moral &#8211; jeweils als <em>positive / negative / ambivalent / neutral / not_mentioned</em></li>
+            <li><strong>Stimme der Rezension:</strong> <em>impersonal / first_person_singular / first_person_plural</em></li>
+          </ul>
+          <div class="text-snippet">
+            <span class="xml-tag">&lt;sentiment_overall&gt;</span>positive<span class="xml-tag">&lt;/sentiment_overall&gt;</span><br>
+            <span class="xml-tag">&lt;category&gt;</span>Belletristik<span class="xml-tag">&lt;/category&gt;</span><br>
+            <span class="xml-tag">&lt;genre&gt;</span>Roman<span class="xml-tag">&lt;/genre&gt;</span><br>
+            <span class="xml-tag">&lt;author_gender&gt;</span>male<span class="xml-tag">&lt;/author_gender&gt;</span><br>
+            <span class="xml-tag">&lt;is_translated&gt;</span>false<span class="xml-tag">&lt;/is_translated&gt;</span>
+          </div>
+          <div class="eval-box">
+            <strong>Evaluation dieses Schritts</strong><br>
+            Abgleich mit manuell annotierter Ground Truth (20 Rezensionen) über kategorienweise Übereinstimmungsquoten, mit Fuzzy-Matching für Freitextfelder. Mittlere Übereinstimmung: GPT 81,8&#8239;%, Qwen 83&#8239;%. Ergänzend: Human-in-the-Loop-Korrektur aller 185 Fälle, bei denen mindestens ein Modell <code>human_verification_needed = true</code> gesetzt hatte.
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 4 -->
+      <div class="step">
+        <div class="step-spine">
+          <div class="step-number">4</div>
+        </div>
+        <div class="step-body">
+          <span class="step-tag">Analyse</span>
+          <h3>Explorative Auswertung des Korpus</h3>
+          <p>
+            Liegen die strukturierten Daten für alle 633 Rezensionen vor, ermöglicht der Korpus quantitative Auswertungen über den gesamten Untersuchungszeitraum &#8211; zum Beispiel:
+          </p>
+          <ul>
+            <li>Wie entwickelt sich die Rezensionsfrequenz im Verlauf des 19. Jahrhunderts?</li>
+            <li>Welche Sentiment-Tendenzen zeigen sich &#8211; und auf welchen Bewertungsdimensionen?</li>
+            <li>Wie verändert sich der Anteil übersetzter Werke diachron?</li>
+            <li>Welche Unterschiede bestehen bei der Besprechung von Werken weiblicher vs. männlicher Autor:innen?</li>
+          </ul>
+          <p>
+            Die quantitativen Befunde werden dabei gezielt durch <em>Close Reading</em> ausgewählter Rezensionen ergänzt, um Muster zu kontextualisieren und Fehlklassifikationen der Modelle zu identifizieren.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- end pipeline -->
+
+    <a href="index.html" class="back-link">&#8592; Zurück zur Startseite</a>
+
+  </div>
+</div>
+
+<div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+</script>
+
+</body>
+</html>

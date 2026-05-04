@@ -1,0 +1,220 @@
+/* base */
+body {
+  margin: 0;
+  background: #f4ecd8;
+  font-family: "Libre Baskerville", serif;
+  color: #2b2b2b;
+  position: relative;
+  min-height: 100vh; /* neu */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;      /* neu */
+  height: 100%;     /* neu */
+  background: url("img/newspaper_bg.jpg") center/cover no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* sicherstellen, dass dein Inhalt darüber liegt */
+.masthead,
+.paper,
+.corner-links {
+  position: relative;
+  z-index: 1;
+}
+
+/* masthead */
+.masthead {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+.masthead h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.rule {
+  width: 80%;
+  height: 2px;
+  background: #2b2b2b;
+  margin: 15px auto 0;
+}
+
+/* layout */
+.paper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 20px 60px;
+}
+
+/* article cards */
+.article {
+  display: block;
+  width: 260px;
+  background: #f8f1df;
+  padding: 18px 16px 14px;
+  text-decoration: none;
+  color: inherit;
+
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+
+  transition: transform 0.2s ease;
+}
+
+.article.large {
+  width: 360px;
+  transform: rotate(0deg);
+}
+
+/* typography */
+.article h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  margin: 0 0 5px;
+}
+
+.article.large h2 {
+  font-size: 1.9rem;
+  text-align: center;
+}
+
+.article h3 {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0 0 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  padding-bottom: 5px;
+}
+
+.article.large h3 {
+  text-align: center;
+}
+
+.article p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 10px 0 15px;
+}
+
+.article.large p {
+  text-align: center;
+}
+
+/* call-to-action */
+.cta {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* interaction */
+.article:hover {
+  transform: scale(1.03) rotate(0deg);
+  z-index: 2;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .paper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article,
+  .article.large {
+    width: 90%;
+    transform: none;
+  }
+
+  .article:hover {
+    transform: none;
+  }
+}
+
+.corner-links {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.corner-links img {
+  width: 28px;
+  height: 28px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.corner-links img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* hamburger button */
+/* hamburger button */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+  font-family: "Playfair Display", serif;
+}
+
+/* text-only menu */
+.menu-text {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+
+  z-index: 15;
+}
+.page-content {
+  transition: transform 0.3s ease;
+}
+
+.page-content.shift {
+  transform: translateX(120px);
+}
+
+/* visible state */
+.menu-text.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* links */
+.menu-text a {
+  text-decoration: none;
+  color: #2b2b2b;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+}
+
+/* subtle hover */
+.menu-text a:hover {
+  text-decoration: underline;
+}

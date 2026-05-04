@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Fazit &amp; Ausblick – Literaturbesprechungen in historischen Zeitungen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 40px 0 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 6px;
+    }
+
+    .intro-body h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      margin: 28px 0 8px;
+      font-style: italic;
+    }
+
+    .intro-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .intro-body ul {
+      padding-left: 1.3em;
+      margin: 10px 0;
+    }
+
+    .intro-body li {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+
+    .highlight-box {
+      background: #f0e8d0;
+      border-left: 4px solid #2b2b2b;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .closing-quote {
+      border-left: 3px solid rgba(0,0,0,0.3);
+      margin: 30px 0 30px 20px;
+      padding: 10px 18px;
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .outlook-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .outlook-item {
+      background: #f8f1df;
+      border: 1px solid rgba(0,0,0,0.15);
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .outlook-item strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .outlook-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .github-link {
+      display: inline-block;
+      margin: 20px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 0.92rem;
+      color: #2b2b2b;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 2px;
+    }
+
+    .github-link:hover {
+      border-bottom-color: #2b2b2b;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+      margin: 40px 0 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">&#8801;</button>
+
+<nav class="menu-text" id="sideMenu">
+  <a href="index.html">Startseite</a>
+  <a href="introduction.html">Einleitung</a>
+  <a href="methodology.html">Methodik</a>
+  <a href="corpus.html">Korpus</a>
+  <a href="results.html">Ergebnisse</a>
+  <a href="discussion.html">Diskussion</a>
+  <a href="conclusion.html">Fazit</a>
+</nav>
+
+<div class="page-content">
+  <header class="masthead">
+    <h1>Fazit &amp; Ausblick</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="intro-body">
+
+    <!-- Zusammenfassung -->
+    <h2>Zusammenfassung</h2>
+    <p>
+      Ziel der Arbeit war es, anhand der <em>Kölnischen Zeitung</em> mithilfe von LLMs einen Korpus historischer Literaturbesprechungen aus den Jahren 1814&#8211;1900 aufzubauen und diesen durch Informationsextraktion und Klassifikation anzureichern. Im Zentrum standen dabei zwei Erkenntnisinteressen: die inhaltliche Frage nach der Charakteristik und diachronen Entwicklung von Rezensionen im 19. Jahrhundert sowie die methodische Frage, inwieweit LLMs als skalierbare Werkzeuge für diese Aufgabe &#8211; unter den erschwerten Bedingungen unstrukturierter, OCR-fehlerbehafteter Quellen &#8211; geeignet sind.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <!-- Methodisches Fazit -->
+    <h2>Methodisches Fazit</h2>
+
+    <h3>Workflow</h3>
+    <p>
+      Der entwickelte mehrschrittige Workflow verbindet keywordgestützte Vorauswahl, Kontextfensterbildung und promptbasierte Extraktion mit einem strukturierten Anreicherungsschritt für Metadaten und Sentiment. Der <em>human-in-the-loop</em>-Mechanismus über das <code>&lt;human_verification_needed&gt;</code>-Flag erwies sich dabei als effektives Instrument zur gezielten Qualitätssicherung bei begrenzten Ressourcen.
+    </p>
+
+    <h3>Modellperformance</h3>
+    <p>
+      Beide getesteten Modelle &#8211; GPT OSS 120B und Qwen3 235B &#8211; zeigen ein grundsätzlich einsetzbares, aber jeweils charakteristisches Fehlerprofil: GPT neigt zur Untererfassung weniger prototypischer Rezensionen, Qwen produziert mehr <em>false positives</em>, da intern als Werbung identifizierte Texte dennoch extrahiert werden. Positiv hervorzuheben sind die geringe Halluzinationsrate und die hohe Formatkonformität beider Modelle.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Evaluationsergebnisse (Extraktion)</strong><br><br>
+      GPT OSS 120B: Erfolgsscore 0,84 &middot; Recall 0,66 &middot; Precision 0,70<br>
+      Qwen3 235B: &nbsp;&nbsp;Erfolgsscore 0,81 &middot; Recall 0,88 &middot; Precision 0,48<br><br>
+      Korpusanreicherung (Metadaten &amp; Sentiment): mittlere Übereinstimmung Mensch&#8211;Modell 0,83 (GPT) bzw. 0,82 (Qwen)
+    </div>
+
+    <h3>Reproduzierbarkeit</h3>
+    <p>
+      Code und Daten der Arbeit stehen offen auf GitHub zur Verfügung, um anderen Forschenden eine Reproduktion im größeren Rahmen oder anhand anderer Zeitungen zu ermöglichen.
+    </p>
+    <a class="github-link" href="https://github.com/johannamauermann/Masterarbeit_Literaturbesprechungen" target="_blank">&#8594; GitHub-Repository</a>
+
+    <div class="section-rule"></div>
+
+    <!-- Inhaltliches Fazit -->
+    <h2>Inhaltliches Fazit</h2>
+    <p>
+      Die Rezensionen der <em>Kölnischen Zeitung</em> offenbaren eine Literaturkritik, die im 19. Jahrhundert zunehmend institutionalisiert wird und dabei aktiv an Kanonisierungsprozessen mitwirkt &#8211; bei gleichzeitig stark ungleicher Sichtbarkeit entlang von Geschlecht und Sprache. Die Befunde sind aufgrund der ausschnittartigen Datenbasis als Hypothesen zu verstehen, die anhand größerer Korpora zu überprüfen wären.
+    </p>
+
+    <div class="closing-quote">
+      Die identifizierten Muster sind weniger als abschließende Ergebnisse denn als Ausgangspunkt für weiterführende Forschung im Bereich der bisher noch untererforschten quantitativen Geschichte der Literaturkritik zu verstehen.
+    </div>
+
+    <ul>
+      <li>Die Rezensionsfrequenz steigt ab den 1840er-Jahren deutlich an &#8211; mit der Einführung des Feuilletons als katalysierendem Faktor.</li>
+      <li>Positive Bewertungen dominieren konstant; die Zeitung fungiert primär als Empfehlungs- und Selektionsorgan.</li>
+      <li>Der Anteil übersetzter Werke sinkt von über 30&thinsp;% (1830er) auf unter 10&thinsp;% (nach 1870) &#8211; Deutsch als Literatursprache gewinnt an Gewicht.</li>
+      <li>Werke weiblicher Autorinnen machen in keinem Jahrzehnt mehr als 10&thinsp;% der Rezensionen aus und sind fast ausschließlich der Belletristik zugeordnet, oft mit explizit weiblichem Adressatenkreis.</li>
+      <li>Der Roman gewinnt in den 1890er-Jahren an Sichtbarkeit, wird dabei aber häufiger kritisch und metareflexiv verhandelt als andere Genres.</li>
+      <li>Mehrfach besprochene Autor:innen sind häufig noch heute bekannt &#8211; ein Hinweis auf die aktive Rolle der Zeitungskritik bei der Konstruktion literarischer Kanones.</li>
+    </ul>
+
+    <div class="section-rule"></div>
+
+    <!-- Ausblick -->
+    <h2>Ausblick</h2>
+    <p>
+      Der vorgestellte Workflow ist grundsätzlich skalierbar. Für zukünftige Forschung ergeben sich verschiedene methodische und inhaltliche Anknüpfungspunkte:
+    </p>
+
+    <div class="outlook-grid">
+      <div class="outlook-item">
+        <strong>Korpuserweiterung</strong>
+        Analyse weiterer Jahrgänge oder Zeitungen für robustere diachrone Aussagen und intermeduale Vergleiche.
+      </div>
+      <div class="outlook-item">
+        <strong>Datenqualität</strong>
+        LLM-gestützte OCR-Korrektur als Preprocessing-Schritt zur Verbesserung der Textgrundlage.
+      </div>
+      <div class="outlook-item">
+        <strong>Prompt-Optimierung</strong>
+        Erprobung von Few-Shot-Ansätzen und gezielterer Modellauswahl für eine bessere Balance aus Precision und Recall.
+      </div>
+      <div class="outlook-item">
+        <strong>Entitätsnormalisierung</strong>
+        Verknüpfung von Personen- und Werknamen mit Linked-Data-Quellen (z.&thinsp;B. Wikidata, DNB) für anschlussfähigere Analysen.
+      </div>
+      <div class="outlook-item">
+        <strong>Methodenvergleich</strong>
+        Systematischer Vergleich mit klassischen NLP-Verfahren zur Einordnung des spezifischen Mehrwerts von LLMs.
+      </div>
+      <div class="outlook-item">
+        <strong>Inhaltliche Vertiefung</strong>
+        Gezielte Subkorpusanalysen, z.&thinsp;B. alle negativen Besprechungen, alle Übersetzungen aus dem Französischen, oder alle Ich-Perspektiven.
+      </div>
+    </div>
+
+    <p>
+      Angesichts der dynamischen Entwicklung im Bereich der Sprachmodelle stellt sich zudem die Frage, inwieweit zukünftige Modelle komplexere Interpretationsleistungen direkt anhand der Texte vollbringen könnten &#8211; ohne mehrschrittige Operationalisierung. Unabhängig davon bleibt eine kritische Validierung der Modelloutputs, integriert mit gezieltem Close Reading, für die Arbeit mit historischen geisteswissenschaftlichen Daten unverzichtbar.
+    </p>
+
+    <a href="index.html" class="back-link">&#8592; Zurück zur Startseite</a>
+
+  </div>
+</div>
+
+<div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+</script>
+
+</body>
+</html>

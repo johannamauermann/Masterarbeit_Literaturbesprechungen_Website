@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Diskussion – Literaturbesprechungen in historischen Zeitungen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 40px 0 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 6px;
+    }
+
+    .intro-body h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      margin: 28px 0 8px;
+      font-style: italic;
+    }
+
+    .intro-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .intro-body ul {
+      padding-left: 1.3em;
+      margin: 10px 0;
+    }
+
+    .intro-body li {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+
+    .inline-quote {
+      border-left: 3px solid rgba(0,0,0,0.3);
+      margin: 20px 0 20px 20px;
+      padding: 8px 16px;
+      font-style: italic;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .inline-quote cite {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      font-style: normal;
+      color: rgba(0,0,0,0.5);
+    }
+
+    .highlight-box {
+      background: #f0e8d0;
+      border-left: 4px solid #2b2b2b;
+      padding: 14px 20px;
+      margin: 24px 0;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .bias-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .bias-card {
+      background: #f8f1df;
+      border: 1px solid rgba(0,0,0,0.15);
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .bias-card strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .bias-card.gpt {
+      border-top: 3px solid rgba(0,0,0,0.4);
+    }
+
+    .bias-card.qwen {
+      border-top: 3px solid rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .bias-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+      margin: 40px 0 0;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">&#8801;</button>
+
+<nav class="menu-text" id="sideMenu">
+  <a href="index.html">Startseite</a>
+  <a href="introduction.html">Einleitung</a>
+  <a href="methodology.html">Methodik</a>
+  <a href="corpus.html">Korpus</a>
+  <a href="results.html">Ergebnisse</a>
+  <a href="discussion.html">Diskussion</a>
+  <a href="conclusion.html">Fazit</a>
+</nav>
+
+<div class="page-content">
+  <header class="masthead">
+    <h1>Diskussion</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="intro-body">
+
+    <h2>Überblick</h2>
+    <p>
+      Im Folgenden werden die Methodik und die generierten Ergebnisse systematisch im Hinblick auf <em>Biases</em> und Limitationen diskutiert. Ausgangspunkt ist dabei die Definition von Rob Kitchin, wonach <em>Bias</em> als ein konsistentes Fehlermuster in einem Datensatz oder einer Verarbeitungsmethode zu verstehen ist, das Befunde und deren Interpretation systematisch verzerrt.
+    </p>
+
+    <div class="inline-quote">
+      „[A] consistent pattern of error within a dataset, or within a method of data processing and analysis, that skews findings and interpretation."
+      <cite>Kitchin, 2025, S. 19</cite>
+    </div>
+
+    <div class="section-rule"></div>
+
+    <!-- Teil 1: Extraktion -->
+    <h2>Biases bei der Rezensionsextraktion</h2>
+
+    <h3>Modellspezifische Fehlerprofile</h3>
+    <p>
+      Die fehlerhaften Extraktionen beider Modelle folgen deutlich erkennbaren, aber einander entgegengesetzten Mustern. GPT OSS 120B neigt zu einer Untererfassung von Rezensionen &#8211; insbesondere kurzer Texte und solcher mit werbetypischen Merkmalen wie Preisangaben. Qwen3 235B hingegen erkennt vorhandene Rezensionen häufig korrekt, produziert jedoch gleichzeitig eine hohe Anzahl an <em>False Positives</em>.
+    </p>
+
+    <div class="bias-grid">
+      <div class="bias-card gpt">
+        <strong>GPT OSS 120B</strong>
+        Hohe Precision, aber systematische Untererfassung: Kurze Rezensionen und Randfälle mit werbetypischen Merkmalen (z.&#8239;B. Preisangaben) werden häufig nicht extrahiert. Viele <em>False Negatives</em>.
+      </div>
+      <div class="bias-card qwen">
+        <strong>Qwen3 235B</strong>
+        Hoher Recall, aber viele <em>False Positives</em>: Werbetexte werden trotz korrekter interner Klassifikation dennoch extrahiert &#8211; eine Inkonsistenz zwischen eigenem Urteil und Ausgabe.
+      </div>
+    </div>
+
+    <p>
+      Besonders auffällig bei Qwen: In einzelnen Fällen argumentiert das Modell im <code>&lt;justification&gt;</code>-Tag korrekt, dass es sich bei einem Text um eine Anzeige und nicht um eine Rezension handelt &#8211; extrahiert ihn aber dennoch. Diese Diskrepanz zwischen Verständnis und Ausführung verweist auf ein grundlegendes Problem: LLMs integrieren vorhandenes Wissen nicht immer konsistent in die Aufgabenlösung.
+    </p>
+
+    <h3>Ambiguität der Aufgabe</h3>
+    <p>
+      Ein Teil der Fehler ist nicht allein auf Modellschwächen zurückzuführen, sondern auf die inhärente Interpretativität der Aufgabe selbst. Trotz definitorischer Festlegungen existieren zahlreiche Randfälle, deren Zuordnung auch für menschliche Annotator:innen nicht eindeutig ist &#8211; etwa kurze empfehlende Texte, die sowohl Rezensions- als auch Anzeigenmerkmale aufweisen. In solchen Fällen markiert der <code>&lt;justification&gt;</code>-Tag die Modellentscheidung nachvollziehbar, kann aber die Ambiguität der Aufgabe nicht auflösen.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Zur Validität der Ground Truth</strong><br>
+      Die manuell erstellte Ground Truth ist kein absoluter Maßstab, sondern operationalisierte wissenschaftliche Interpretation. Divergenzen zwischen Modell und Ground Truth sind daher nicht in jedem Fall als Modellfehler zu werten. Für zukünftige Untersuchungen wäre die Bestimmung eines Inter-Annotator-Agreements mit mehreren Annotator:innen sinnvoll, um die Variabilität menschlicher Entscheidungen quantifizierbar zu machen.
+    </div>
+
+    <h3>Explainability und Human-in-the-Loop</h3>
+    <p>
+      Der <code>&lt;human_verification_needed&gt;</code>-Tag erweist sich als effektives Instrument zur gezielten Qualitätssicherung: Für als unsicher markierte Extraktionen ergibt sich ein durchschnittlich niedrigerer Erfolgsscore, was darauf hindeutet, dass die geäußerte Unsicherheit häufig berechtigt ist. Beim Qwen-Modell wird der Tag jedoch in sehr vielen Fällen auf <em>True</em> gesetzt &#8211; bei einer Hochskalierung des Datensets könnte die Menge der zu überprüfenden Texte die verfügbaren Ressourcen übersteigen.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <!-- Teil 2: Anreicherung -->
+    <h2>Biases bei der Korpusanreicherung</h2>
+
+    <h3>Systematische Fehler nach Kategorie</h3>
+    <p>
+      Auch beim zweiten Methodenschritt &#8211; der Extraktion von Metadaten und der Sentiment-Klassifikation &#8211; zeigen sich konsistente Fehlermuster. Besonders betroffen ist bei beiden Modellen das <code>&lt;publisher&gt;</code>-Feld, das aufgrund seiner hohen Fehlerquote von der Analyse ausgeschlossen wurde. Typische Fehler: Erscheinungsort statt Verlagsname, oder <em>unknown</em> trotz vorhandener Angaben.
+    </p>
+    <ul>
+      <li>GPT hat Schwierigkeiten mit Ironie: Ironisch gemeinte positive Formulierungen werden als tatsächlich positiv klassifiziert.</li>
+      <li>Qwen tendiert zur Untererfassung inferierbarer Informationen &#8211; insbesondere das Geschlecht von Autor:innen wird trotz eindeutiger grammatikalischer Marker oft als <em>unknown</em> annotiert, und betrifft ausschließlich männliche Autoren.</li>
+      <li>Beide Modelle annotieren in einem Fall den bekannteren <em>Heinrich Heine</em> statt des tatsächlichen Autors <em>Wilhelm Heine</em> &#8211; ein Beispiel für die Aktivierung von Trainingswissen anstelle von Textlektüre.</li>
+    </ul>
+
+    <h3>Explizit-extraktive vs. interpretative Kategorien</h3>
+    <p>
+      Die Herausforderungen variieren je nach Typ der Annotationsaufgabe: Während explizit im Text vorliegende Informationen (Titel, Autor:in) vergleichsweise zuverlässig extrahiert werden, sind implizit-extraktive (Geschlecht, Genre) und klassifikatorisch-interpretative Kategorien (Sentiment) deutlich fehleranfälliger &#8211; und zwar nicht nur für die Modelle, sondern auch für menschliche Annotator:innen.
+    </p>
+    <p>
+      Positiv zu vermerken: Die Sentiment-Klassifikation fällt insgesamt besser aus als erwartet. Die Übereinstimmung zwischen Modell und Ground Truth liegt für die meisten Sentiment-Dimensionen über 75&#8239;%, was darauf hindeutet, dass Rezensionen im Vergleich zu anderen Texten vergleichsweise eindeutige Bewertungssignale enthalten.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <!-- Teil 3: Daten und Methode -->
+    <h2>Limitationen der Daten und des Ansatzes</h2>
+
+    <h3>Datengröße und Repräsentativität</h3>
+    <p>
+      Der zugrunde liegende Korpus ist vergleichsweise klein. In der diachronen Analyse sind für einzelne Jahrzehnte nur wenige Datenpunkte vorhanden &#8211; einzelne Beispiele können die Verteilungen stark beeinflussen. Die Analyseergebnisse sind daher eher als Hypothesen zu verstehen, die anhand einer größeren Datenmenge zu überprüfen wären.
+    </p>
+
+    <h3>Datenqualität</h3>
+    <p>
+      Ein erheblicher Teil des Korpus ist durch OCR-Fehler, Unvollständigkeit und Rauschen geprägt. Texte, die sich über mehrere Seiten erstrecken, liegen im Datenset zwangsläufig fragmentarisch vor. Die Arbeit verzichtet bewusst auf eine vorgelagerte OCR-Korrektur, um die Robustheit des Workflows unter realistischen Bedingungen zu testen &#8211; was gleichzeitig eine Einschränkung der Analysegüte darstellt.
+    </p>
+
+    <h3>Opazität der Modelle</h3>
+    <p>
+      Auch wenn open-weight-Modelle eingesetzt wurden, die lokal über Uniserver gehostet werden, bleiben die Trainingsdaten und internen Entscheidungsprozesse nicht vollständig transparent. Modellbedingte Verzerrungen sollten daher nicht allein als Störfaktor, sondern als konstitutiver Bestandteil der erzeugten Daten verstanden und entsprechend in der Interpretation berücksichtigt werden.
+    </p>
+
+    <h3>Beschränkung auf eine Zeitung</h3>
+    <p>
+      Anhand der ausgewählten Daten können keine generellen Aussagen zur Literaturkritik des 19. Jahrhunderts getroffen werden. Die Ergebnisse beziehen sich ausschließlich auf die <em>Kölnische Zeitung</em>. Eine vergleichende Einbeziehung weiterer Zeitungen &#8211; etwa mit anderer politischer Ausrichtung oder regionaler Verortung &#8211; könnte die Generalisierbarkeit der Befunde erhöhen.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <!-- Fazit der Diskussion -->
+    <h2>Methodisches Gesamtfazit</h2>
+    <p>
+      Quantitative Ergebnisse sind im vorliegenden Rahmen für sich genommen nur begrenzt aussagekräftig &#8211; sie fungieren vielmehr als Ausgangspunkt für qualitative Vertiefungen. Das enge Zusammenspiel aus <em>Distant Reading</em> und gezieltem <em>Close Reading</em> erwies sich als methodisch fruchtbar: Während quantitative Auswertungen Muster sichtbar machen, erlaubt die qualitative Lektüre eine differenziertere Einordnung. Die Systematik der auftretenden Fehler bietet dabei nicht nur Anlass für Optimierungen, sondern auch für die Frage, wie mit imperfekten Daten zielführend weitergearbeitet werden kann &#8211; und wie modellbedingte Verzerrungen aktiv in die Analyse integriert werden können, anstatt sie lediglich als Störgröße zu behandeln.
+    </p>
+
+    <a href="index.html" class="back-link">&#8592; Zurück zur Startseite</a>
+
+  </div>
+</div>
+
+<div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+</script>
+
+</body>
+</html>

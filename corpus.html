@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Korpus &amp; Daten – Literaturbesprechungen in historischen Zeitungen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 40px 0 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 6px;
+    }
+
+    .intro-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+      margin: 40px 0 0;
+    }
+
+    .inline-quote {
+      border-left: 3px solid rgba(0,0,0,0.3);
+      margin: 20px 0 20px 20px;
+      padding: 8px 16px;
+      font-style: italic;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .inline-quote cite {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      font-style: normal;
+      color: rgba(0,0,0,0.5);
+    }
+
+    .source-note {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.5);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 20px 0;
+    }
+
+    .data-table th {
+      font-family: "Playfair Display", serif;
+      text-align: left;
+      border-bottom: 2px solid rgba(0,0,0,0.4);
+      padding: 6px 10px;
+    }
+
+    .data-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .article-figure {
+  margin: 20px 0;
+}
+
+.article-figure img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
+}
+
+.article-figure figcaption {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(0,0,0,0.55);
+  margin-top: 6px;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">≡</button>
+
+<nav class="menu-text" id="sideMenu">
+  <a href="index.html">Startseite</a>
+  <a href="introduction.html">Einleitung</a>
+  <a href="methodology.html">Methodik</a>
+  <a href="corpus.html">Korpus</a>
+  <a href="results.html">Ergebnisse</a>
+  <a href="discussion.html">Diskussion</a>
+</nav>
+
+<div class="page-content">
+  <header class="masthead">
+    <h1>Korpus &amp; Daten</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="intro-body">
+
+    <h2>Datenbasis im Überblick</h2>
+    <p>
+      Die Datenbasis der Arbeit bilden Literaturbesprechungen in der <em>Kölnischen Zeitung</em> für den Zeitraum von 1814 bis 1900. Aus dem Gesamtbestand von 224.927 digitalisierten Seiten wurden mithilfe einer Keyword-Vorauswahl und anschließender Zufallsstichprobe insgesamt 1.740 Seiten gezogen – je 20 pro Jahr –, die eine manuelle Überprüfung und Evaluation der LLM-gestützten Methodik ermöglichen. Daraus wurden 633 Rezensionen manuell verifiziert und als Grundlage der explorativen Analyse genutzt.
+    </p>
+
+    <table class="data-table">
+      <tr>
+        <th>Kennzahl</th>
+        <th>Wert</th>
+      </tr>
+      <tr>
+        <td>Untersuchungszeitraum</td>
+        <td>1814–1900 (87 Jahre)</td>
+      </tr>
+      <tr>
+        <td>Gesamtbestand (Kölnische Zeitung)</td>
+        <td>224.927 Seiten</td>
+      </tr>
+      <tr>
+        <td>Stichprobe (Sample)</td>
+        <td>1.740 Seiten (20 pro Jahr)</td>
+      </tr>
+      <tr>
+        <td>Verifizierte Rezensionen</td>
+        <td>633</td>
+      </tr>
+      <tr>
+        <td>Datenquelle</td>
+        <td>Deutsche Digitale Bibliothek (API)</td>
+      </tr>
+    </table>
+
+    <div class="section-rule"></div>
+    <figure class="article-figure">
+    <img src="img/koelnische_screenshot_ddb.png" alt="Screenshot der Kölnischen Zeitung im Interface des DDB-Zeitungsportals">
+    <figcaption>Die Kölnische über das Interface des DDB-Zeitungsportals</figcaption>
+    </figure>
+
+    <h2>Auswahl der Zeitung</h2>
+    <p>
+      Die <em>Kölnische Zeitung</em> war im deutschsprachigen Raum eine der bedeutendsten Tageszeitungen des 19. Jahrhunderts. Als national-liberales Leitmedium mit überregionaler Reichweite erreichte sie Auflagen von 2.086 (1822) über 40.000 (1871) bis geschätzt 200.000–300.000 Exemplaren (1914). Drei Faktoren machen sie zum geeigneten Fallbeispiel für diese Arbeit:
+    </p>
+    <p>
+      Erstens ihre <em>publizistische Relevanz</em>: Die Zeitung spiegelte die literarischen Interessen einer breiten, gesellschaftlich heterogenen Leserschaft wider.
+    </p>
+    <p>
+      Zweitens ihre <em>Vorreiterrolle im Feuilleton</em>: Bereits 1838 wurde das Feuilleton als feste literarische Rubrik „unter dem Strich" ins Hauptblatt integriert – früher als bei vielen anderen Zeitungen. Dies lässt erwarten, dass Literaturbesprechungen hier mit einer gewissen Regelmäßigkeit und Systematik auftauchen.
+    </p>
+    <p>
+      Drittens ihre <em>digitale Verfügbarkeit</em>: Die Jahrgänge 1803–1945 sind über das Zeitungsportal der Deutschen Digitalen Bibliothek mit OCR-Texten und per API zugänglich, was eine computergestützte Weiterverarbeitung ermöglicht.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <h2>Auswahl des Zeitraums (1814–1900)</h2>
+    <p>
+      Das 19. Jahrhundert ist aus mehreren Gründen als Untersuchungszeitraum besonders geeignet. Es ist eine Epoche tiefgreifenden Wandels für Literatur und Literaturkritik: Steigende Alphabetisierung, ein expandierender Buchmarkt und die Verlagerung der Kritik von gelehrten Journalen in das Feuilleton der Tagespresse prägen diesen Zeitraum. Die Frage, wann und wie Rezensionen in der <em>Kölnischen Zeitung</em> entstehen und sich verändern, erscheint daher hier besonders interessant.
+    </p>
+    <p>
+      Der Beginn im Jahr 1814 – und nicht bereits 1803 – erklärt sich dadurch, dass die Digitalisate erst ab diesem Jahrgang durchgehend vollständig vorliegen. Auf eine Erweiterung in das 20. Jahrhundert wurde verzichtet, da die Zeitungslandschaft dort deutlich unübersichtlicher wird und die Datenmenge im Hinblick auf eine umfassende methodische Evaluation bewusst zu begrenzen.
+    </p>
+
+    <div class="section-rule"></div>
+
+    <h2>Datenqualität und OCR</h2>
+    <p>
+      Die über die DDB-API extrahierten OCR-Texte sind seitenweise strukturiert und enthalten pro Seite ca. bis zu 5.000 Wörter im unstrukturierten Fließtext. Die Qualität variiert erheblich: Manche Seiten sind nahezu fehlerfrei lesbar, während andere durch historische Schreibweisen, Frakturschrift, komplexe Layouts und Druckfehler stark verrauscht sind. In seltenen Fällen sind Texte durch fehlerhafte Layout-Erkennung bis zur Unleserlichkeit entstellt.
+    </p>
+    <p>
+      Da die Seiten nicht nach einzelnen Artikeln unterteilt sind, müssen Texte, die sich über mehrere Seiten erstrecken, als unvollständig betrachtet werden – eine Einschränkung, die bewusst in Kauf genommen wurde. Maßnahmen zur OCR-Korrektur oder Textvervollständigung wurden im Rahmen dieser Arbeit nicht vorgenommen, um zu erproben, wie gut LLMs auch unter diesen realen, unbereinigten Bedingungen eingesetzt werden können.
+    </p>
+
+    <blockquote class="inline-quote">
+      „what can be searched is not necessarily what was printed"
+      <cite>Ehrmann, M., Bunout, E., & Clavert, F. (2023). Digitised Historical Newspapers: A Changing Research Landscape. In E. Bunout, M. Ehrmann, & F. Clavert (Hrsg.), Digitised Newspapers—A New Eldorado for Historians? Reflections on Tools, Methods and Epistemology (Bd. 3, S. 1–24). De Gruyter. https://doi.org/10.1515/9783110729214</cite>
+    </blockquote>
+
+    <p>
+      Dieser Hinweis auf die epistemologischen Grenzen digitaler Zeitungsarchive gilt als methodische Prämisse der gesamten Arbeit: Die verwendeten Daten sind nicht neutral, sondern durch Fehler, Auslassungen und strukturelle Verzerrungen geprägt.
+    </p>
+
+    <div class="section-rule"></div>
+    <img src="img/koelnische_pageview.png" alt="Seitenansicht der Kölnischen Zeitung" style="width:100%; max-width:100%; display:block; margin:20px 0; border: 1px solid rgba(0,0,0,0.2); box-shadow: 2px 4px 10px rgba(0,0,0,0.15);">
+
+    <h2>Zusammensetzung des Samples</h2>
+    <p>
+      Um eine diachrone Untersuchung zu ermöglichen, wurden die 1.740 Seiten bewusst gleichmäßig über alle Jahrgänge verteilt – je 20 Seiten pro Jahr. Diese Entscheidung weicht von der tatsächlichen Keyword-Verteilung ab, nach der in den frühen Jahrgängen deutlich weniger potenziell relevante Seiten vorhanden sind als in den späteren. Die Gleichverteilung ermöglicht jedoch, auch frühe Entwicklungen in den Blick zu nehmen und diachrone Tendenzen analytisch abzubilden, ohne einzelne Jahrzehnte von vornherein zu bevorzugen.
+    </p>
+    <p>
+      Die Auswahl der Seiten innerhalb eines Jahrgangs erfolgte zufällig, jedoch auf Basis einer Keyword-Vorfilterung: Nur Seiten, die mindestens zwei literaturbezogene Schlüsselwörter (z. B. <em>Dichter</em>, <em>Literatur</em>, <em>Leser</em>, <em>Übersetzung</em>) enthalten, wurden in die Stichprobe aufgenommen, um den Verarbeitungsaufwand durch eine Begrenzung der Datenmenge zu reduzieren.
+    </p>
+
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+  </div>
+</div>
+
+<div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+</script>
+
+</body>
+</html>

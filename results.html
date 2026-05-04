@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Ergebnisse – Literaturbesprechungen in historischen Zeitungen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 40px 0 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      padding-bottom: 6px;
+    }
+
+    .intro-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+      margin: 40px 0 0;
+    }
+
+    /* ── Intro-Hinweis ── */
+    .results-intro {
+      background: #f0e8d0;
+      border-left: 4px solid #2b2b2b;
+      padding: 16px 20px;
+      margin: 24px 0 10px;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── Slider ── */
+    .viz-slider {
+      margin: 30px 0 10px;
+      position: relative;
+    }
+
+    .viz-slide {
+      display: none;
+    }
+
+    .viz-slide.active {
+      display: block;
+    }
+
+    .viz-slide h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin: 0 0 14px;
+    }
+
+    .viz-slide img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border: 1px solid rgba(0,0,0,0.2);
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .viz-slide .viz-caption {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-top: 14px;
+      color: #2b2b2b;
+    }
+
+    .viz-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+    }
+
+    .viz-btn {
+      background: none;
+      border: 1px solid rgba(0,0,0,0.35);
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      padding: 5px 14px;
+      cursor: pointer;
+      color: #2b2b2b;
+      transition: background 0.15s ease;
+    }
+
+    .viz-btn:hover {
+      background: rgba(0,0,0,0.07);
+    }
+
+    .viz-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+
+    .viz-counter {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: rgba(0,0,0,0.5);
+    }
+
+    /* ── Ergebnisse ── */
+    .results-section h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      margin: 30px 0 8px;
+      font-style: italic;
+    }
+
+    .results-section p,
+    .results-section li {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin: 8px 0;
+    }
+
+    .results-section ul {
+      padding-left: 1.3em;
+    }
+
+    .results-section li {
+      margin-bottom: 6px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 30px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: #2b2b2b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleMenu()">&#8801;</button>
+
+<nav class="menu-text" id="sideMenu">
+  <a href="index.html">Startseite</a>
+  <a href="introduction.html">Einleitung</a>
+  <a href="methodology.html">Methodik</a>
+  <a href="corpus.html">Korpus</a>
+  <a href="results.html">Ergebnisse</a>
+  <a href="discussion.html">Diskussion</a>
+</nav>
+
+<div class="page-content">
+  <header class="masthead">
+    <h1>Ergebnisse</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="intro-body">
+
+    <!-- Einleitender Hinweis -->
+    <div class="results-intro">
+      Die folgenden Visualisierungen geben einen Überblick über die zentralen quantitativen Befunde der explorativen Analyse. Mit den Pfeilen lässt sich zwischen den einzelnen Abbildungen navigieren. Eine zusammenfassende Interpretation der Ergebnisse findet sich im Abschnitt weiter unten.
+    </div>
+
+    <div class="section-rule"></div>
+
+    <!-- Visualisierungs-Slider -->
+    <h2>Visualisierungen</h2>
+
+    <div class="viz-slider" id="vizSlider">
+
+      <div class="viz-slide active">
+        <h3>Bewertungstendenzen im Gesamtkorpus</h3>
+        <img src="img/plot_sentiment_overall.png" alt="Verteilung von sentiment_overall im Gesamtzeitraum">
+        <p class="viz-caption">
+          Im gesamten Untersuchungszeitraum dominieren positive Bewertungen klar: Mehr als 60&thinsp;% der Rezensionen fallen in die Kategorie <em>positiv</em> oder <em>sehr positiv</em>, während negative Besprechungen unter 10&thinsp;% bleiben. Dies deutet auf eine primär empfehlende Funktion der Literaturkritik in der <em>Kölnischen Zeitung</em> hin &#8211; selektiert wird, was besprechenswert gilt, und das wird überwiegend wohlwollend besprochen.
+        </p>
+      </div>
+
+      <div class="viz-slide">
+        <h3>Anteil von Übersetzungen nach Jahrzehnt</h3>
+        <img src="img/plot_translations_by_decade.png" alt="Anteile von is_translated nach Jahrzehnt">
+        <p class="viz-caption">
+          Der Anteil übersetzter Werke unter den rezensierten Titeln sinkt im Verlauf des 19. Jahrhunderts deutlich: Während in den 1830er-Jahren noch über 30&thinsp;% der besprochenen Werke Übersetzungen sind, fällt dieser Anteil nach 1870 auf unter 10&thinsp;%. Diese Entwicklung spiegelt den wachsenden Stellenwert der deutschsprachigen Originalliteratur und die zunehmende Eigenständigkeit des deutschen Buchmarkts wider.
+        </p>
+      </div>
+
+      <div class="viz-slide">
+        <h3>Geschlechterverteilung der Autor:innen nach Jahrzehnt</h3>
+        <img src="img/plot_gender_by_decade.png" alt="Anteile von Autor:innen (male vs. female) pro Dekade">
+        <p class="viz-caption">
+          Werke weiblicher Autorinnen machen in keinem Jahrzehnt mehr als 10&thinsp;% der rezensierten Titel aus. Die Unterrepräsentation ist damit nicht nur ausgeprägt, sondern bleibt über den gesamten Untersuchungszeitraum strukturell stabil &#8211; trotz der zunehmenden Sichtbarkeit von Autorinnen im deutschsprachigen Buchmarkt des späten 19. Jahrhunderts.
+        </p>
+      </div>
+
+      <div class="viz-slide">
+        <h3>Kategorien nach Geschlecht der Autor:innen</h3>
+        <img src="img/plot_category_by_gender.png" alt="Anteile von category nach author_gender">
+        <p class="viz-caption">
+          Werke weiblicher Autorinnen werden fast ausschließlich der Belletristik zugerechnet (ca. 74&thinsp;%), während bei männlichen Autoren ein deutlich breiteres Genrespektrum sichtbar wird: Neben Belletristik (ca. 50&thinsp;%) finden sich Gelehrte Literatur (ca. 39&thinsp;%) und Gebrauchsliteratur (ca. 11&thinsp;%). Frauen als Autorinnen gelehrter oder wissenschaftlicher Texte tauchen im Korpus kaum auf.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Steuerung -->
+    <div class="viz-controls">
+      <button class="viz-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>&#8592;</button>
+      <span class="viz-counter" id="vizCounter">1 / 4</span>
+      <button class="viz-btn" id="nextBtn" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+
+    <div class="section-rule"></div>
+
+    <!-- Zusammenfassung der Ergebnisse -->
+    <h2>Zusammenfassung der Ergebnisse</h2>
+
+    <div class="results-section">
+
+      <h3>Frequenz und Institutionalisierung</h3>
+      <p>
+        Rezensionen treten in der <em>Kölnischen Zeitung</em> zunächst vereinzelt auf und nehmen ab den 1840er-Jahren, mit der Etablierung des Feuilletons als fester Rubrik, deutlich zu. Den Höhepunkt erreicht die Rezensionsfrequenz in den 1880er- und 1890er-Jahren. Die Zeitung entwickelt sich damit im Verlauf des Jahrhunderts erkennbar von einem gelegentlichen zum systematischen Publikationsort der Literaturkritik.
+      </p>
+
+      <h3>Bewertungstendenzen</h3>
+      <ul>
+        <li>Positive Bewertungen dominieren durchgehend (über 60&thinsp;% im Gesamtkorpus); negative Rezensionen bleiben selten (unter 10&thinsp;%).</li>
+        <li>Am häufigsten bewertet werden Inhalt und Autorschaft (<em>sentiment_content</em>, <em>sentiment_author</em>); moralische oder gesellschaftliche Dimensionen spielen eine untergeordnete Rolle.</li>
+        <li>Wo moralisch gewertet wird, fällt die Bewertung tendenziell negativer aus als in anderen Dimensionen.</li>
+      </ul>
+
+      <h3>Genres und Gattungswandel</h3>
+      <ul>
+        <li>Belletristik (269 Rezensionen), Gelehrte Literatur (253) und Gebrauchsliteratur (107) sind annähernd gleichmäßig vertreten, wobei Belletristik leicht überwiegt.</li>
+        <li>Der Roman gewinnt in den 1890er-Jahren sichtbar an Rezensionsanteil, wird dabei aber häufiger ambivalent bewertet &#8211; und zeitgenössisch metareflexiv als aufsteigendes, aber umstrittenes Genre verhandelt.</li>
+      </ul>
+
+      <h3>Übersetzungen</h3>
+      <ul>
+        <li>Der Anteil übersetzter Werke sinkt von über 30&thinsp;% (1830er) auf unter 10&thinsp;% (nach 1870).</li>
+        <li>Häufigste Ausgangssprachen sind Französisch und Englisch.</li>
+        <li>Die Entwicklung spiegelt den wachsenden Stellenwert deutschsprachiger Originalliteratur und die Herausbildung eines eigenständigen nationalen Buchmarkts wider.</li>
+      </ul>
+
+      <h3>Geschlecht und Sichtbarkeit</h3>
+      <ul>
+        <li>Weniger als 10&thinsp;% der rezensierten Werke stammen in jedem Jahrzehnt von Autorinnen &#8211; die Unterrepräsentation ist strukturell stabil.</li>
+        <li>Werke weiblicher Autorinnen sind fast ausschließlich der Belletristik zugeordnet, oft mit einem dezidiert weiblichen Adressatenkreis.</li>
+        <li>Die Bewertungen von Werken weiblicher Autorinnen sind trotzdem vergleichbar positiv wie jene ihrer männlichen Kollegen.</li>
+      </ul>
+
+      <h3>Rhetorik der Wertung</h3>
+      <p>
+        Rezensionen sind überwiegend in der dritten Person und impersonal gehalten &#8211; Urteile werden als behauptete Fakten präsentiert, nicht als subjektive Meinungen. Dies verstärkt die autoritative Wirkung der Kritik und entspricht einer Wertungsrhetorik, die Selektivität und Empfehlung als selbstverständlich erscheinen lässt.
+      </p>
+
+      <h3>Kanonisierungseffekte</h3>
+      <p>
+        Mehrfach besprochene Autor:innen sind häufig noch heute bekannt (u. a. Storm, Dickens, Schiller). Die <em>Kölnische Zeitung</em> wirkt damit nicht nur als Spiegel zeitgenössischer Lektüreinteressen, sondern als aktive Instanz literarischer Selektion und Kanonbildung.
+      </p>
+
+    </div>
+
+    <a href="index.html" class="back-link">&#8592; Zurück zur Startseite</a>
+
+  </div>
+</div>
+
+<div class="corner-links">
+  <a href="https://github.com/johannamauermann" target="_blank" aria-label="GitHub">
+    <img src="img/github.svg" alt="">
+  </a>
+  <a href="https://orcid.org/0009-0000-4790-8196" target="_blank" aria-label="ORCID">
+    <img src="img/orcid.svg" alt="">
+  </a>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+  document.querySelector(".page-content").classList.toggle("shift");
+}
+
+// Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll(".viz-slide");
+const total = slides.length;
+
+function changeSlide(dir) {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = Math.max(0, Math.min(total - 1, currentSlide + dir));
+  slides[currentSlide].classList.add("active");
+  document.getElementById("vizCounter").textContent = (currentSlide + 1) + " / " + total;
+  document.getElementById("prevBtn").disabled = currentSlide === 0;
+  document.getElementById("nextBtn").disabled = currentSlide === total - 1;
+}
+</script>
+
+</body>
+</html>
