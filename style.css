@@ -191,13 +191,15 @@ body::before {
   transition: opacity 0.2s ease;
 
   z-index: 15;
+
+  /* neu: Hintergrund damit kein Durchscheinen */
+  background: #f4ecd8;
+  padding: 14px 20px 16px;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.12);
 }
 .page-content {
-  transition: transform 0.3s ease;
-}
-
-.page-content.shift {
-  transform: translateX(120px);
+  transition: none;
 }
 
 /* visible state */

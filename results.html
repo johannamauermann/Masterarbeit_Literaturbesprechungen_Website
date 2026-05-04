@@ -139,18 +139,34 @@
       margin-bottom: 6px;
     }
 
-    .back-link {
-      display: inline-block;
-      margin: 30px 0 0;
-      font-family: "Playfair Display", serif;
-      font-size: 0.9rem;
-      color: #2b2b2b;
-      text-decoration: none;
-    }
+    .nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.15);
+}
 
-    .back-link:hover {
-      text-decoration: underline;
-    }
+.back-link,
+.home-link,
+.forward-link {
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  color: #2b2b2b;
+  text-decoration: none;
+}
+
+.back-link:hover,
+.home-link:hover,
+.forward-link:hover {
+  text-decoration: underline;
+}
+
+.home-link {
+  color: rgba(0,0,0,0.45);
+  font-size: 0.82rem;
+}
   </style>
 </head>
 <body>
@@ -160,10 +176,12 @@
 <nav class="menu-text" id="sideMenu">
   <a href="index.html">Startseite</a>
   <a href="introduction.html">Einleitung</a>
-  <a href="methodology.html">Methodik</a>
   <a href="corpus.html">Korpus</a>
+  <a href="methodology.html">Methodik</a>
   <a href="results.html">Ergebnisse</a>
   <a href="discussion.html">Diskussion</a>
+  <a href="conclusion.html">Fazit &amp; Ausblick</a>
+  <a href="impressum.html">Impressum</a>
 </nav>
 
 <div class="page-content">
@@ -278,7 +296,11 @@
 
     </div>
 
-    <a href="index.html" class="back-link">&#8592; Zurück zur Startseite</a>
+    <div class="nav-links">
+        <a href="methodology.html" class="back-link">← Methodik</a>
+        <a href="index.html" class="home-link">Startseite</a>
+        <a href="discussion.html" class="forward-link">Diskussion →</a>
+    </div>
 
   </div>
 </div>

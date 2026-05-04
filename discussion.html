@@ -117,18 +117,34 @@
       margin: 40px 0 0;
     }
 
-    .back-link {
-      display: inline-block;
-      margin: 30px 0 0;
-      font-family: "Playfair Display", serif;
-      font-size: 0.9rem;
-      color: #2b2b2b;
-      text-decoration: none;
-    }
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.15);
+}
 
-    .back-link:hover {
-      text-decoration: underline;
-    }
+.back-link,
+.home-link,
+.forward-link {
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  color: #2b2b2b;
+  text-decoration: none;
+}
+
+.back-link:hover,
+.home-link:hover,
+.forward-link:hover {
+  text-decoration: underline;
+}
+
+.home-link {
+  color: rgba(0,0,0,0.45);
+  font-size: 0.82rem;
+}
   </style>
 </head>
 <body>
@@ -138,11 +154,12 @@
 <nav class="menu-text" id="sideMenu">
   <a href="index.html">Startseite</a>
   <a href="introduction.html">Einleitung</a>
-  <a href="methodology.html">Methodik</a>
   <a href="corpus.html">Korpus</a>
+  <a href="methodology.html">Methodik</a>
   <a href="results.html">Ergebnisse</a>
   <a href="discussion.html">Diskussion</a>
-  <a href="conclusion.html">Fazit</a>
+  <a href="conclusion.html">Fazit &amp; Ausblick</a>
+  <a href="impressum.html">Impressum</a>
 </nav>
 
 <div class="page-content">
@@ -259,7 +276,11 @@
       Quantitative Ergebnisse sind im vorliegenden Rahmen für sich genommen nur begrenzt aussagekräftig &#8211; sie fungieren vielmehr als Ausgangspunkt für qualitative Vertiefungen. Das enge Zusammenspiel aus <em>Distant Reading</em> und gezieltem <em>Close Reading</em> erwies sich als methodisch fruchtbar: Während quantitative Auswertungen Muster sichtbar machen, erlaubt die qualitative Lektüre eine differenziertere Einordnung. Die Systematik der auftretenden Fehler bietet dabei nicht nur Anlass für Optimierungen, sondern auch für die Frage, wie mit imperfekten Daten zielführend weitergearbeitet werden kann &#8211; und wie modellbedingte Verzerrungen aktiv in die Analyse integriert werden können, anstatt sie lediglich als Störgröße zu behandeln.
     </p>
 
-    <a href="index.html" class="back-link">&#8592; Zurück zur Startseite</a>
+    <div class="nav-links">
+      <a href="results.html" class="back-link">← Ergebnisse</a>
+      <a href="index.html" class="home-link">Startseite</a>
+      <a href="conclusion.html" class="forward-link">Fazit &amp; Ausblick →</a>
+    </div>
 
   </div>
 </div>
