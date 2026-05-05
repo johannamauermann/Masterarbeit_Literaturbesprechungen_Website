@@ -39,7 +39,7 @@
 
     /* ── Intro-Hinweis ── */
     .results-intro {
-      background: #f0e8d0;
+      background: #f1ecd8;
       border-left: 4px solid #2b2b2b;
       padding: 16px 20px;
       margin: 24px 0 10px;
@@ -205,34 +205,58 @@
     <div class="viz-slider" id="vizSlider">
 
       <div class="viz-slide active">
-        <h3>Bewertungstendenzen im Gesamtkorpus</h3>
-        <img src="img/plot_sentiment_overall.png" alt="Verteilung von sentiment_overall im Gesamtzeitraum">
+        <h3>Anzahl von Rezensionen pro Jahrzehnt im Korpus</h3>
+        <img src="img/reviews_frequency.png" alt="Anzahl von Rezensionen pro Jahrzehnt im Korpus">
         <p class="viz-caption">
-          Im gesamten Untersuchungszeitraum dominieren positive Bewertungen klar: Mehr als 60&thinsp;% der Rezensionen fallen in die Kategorie <em>positiv</em> oder <em>sehr positiv</em>, während negative Besprechungen unter 10&thinsp;% bleiben. Dies deutet auf eine primär empfehlende Funktion der Literaturkritik in der <em>Kölnischen Zeitung</em> hin &#8211; selektiert wird, was besprechenswert gilt, und das wird überwiegend wohlwollend besprochen.
+          Trotz des Versuchs einer Ausbalancierung des Korpus durch zufällige Auswahl von 20 Seiten pro Jahr des Untersuchungszeitraums, zeigt sich klar, dass in den späteren Jahrzehnten deutlich mehr Rezensionen innerhalb der <em>Kölnischen Zeitung</em> enthalten sind. Dies deutet auf eine steigende Relevanz der Literaturkritik innerhalb der Zeitung hin. Das 1900er-Jahrzehnt ist dagegen datenarm, da hierfür nur das Jahr 1900 im Korpus enthalten ist. Diese ungleiche Verteilung muss bei den künftigen Analysen beachtet werden.
         </p>
       </div>
 
       <div class="viz-slide">
         <h3>Anteil von Übersetzungen nach Jahrzehnt</h3>
-        <img src="img/plot_translations_by_decade.png" alt="Anteile von is_translated nach Jahrzehnt">
+        <img src="img/translation_time.png" alt="Anteile von is_translated nach Jahrzehnt">
         <p class="viz-caption">
           Der Anteil übersetzter Werke unter den rezensierten Titeln sinkt im Verlauf des 19. Jahrhunderts deutlich: Während in den 1830er-Jahren noch über 30&thinsp;% der besprochenen Werke Übersetzungen sind, fällt dieser Anteil nach 1870 auf unter 10&thinsp;%. Diese Entwicklung spiegelt den wachsenden Stellenwert der deutschsprachigen Originalliteratur und die zunehmende Eigenständigkeit des deutschen Buchmarkts wider.
         </p>
       </div>
 
       <div class="viz-slide">
-        <h3>Geschlechterverteilung der Autor:innen nach Jahrzehnt</h3>
-        <img src="img/plot_gender_by_decade.png" alt="Anteile von Autor:innen (male vs. female) pro Dekade">
+        <h3>Sentiment Verteilungen im Korpus</h3>
+        <img src="img/sentiment_all_dimensions.png" alt="verschiedene Sentimentdimensionen">
         <p class="viz-caption">
-          Werke weiblicher Autorinnen machen in keinem Jahrzehnt mehr als 10&thinsp;% der rezensierten Titel aus. Die Unterrepräsentation ist damit nicht nur ausgeprägt, sondern bleibt über den gesamten Untersuchungszeitraum strukturell stabil &#8211; trotz der zunehmenden Sichtbarkeit von Autorinnen im deutschsprachigen Buchmarkt des späten 19. Jahrhunderts.
+            Über alle Bewertungsdimensionen hinweg, dominieren positive Wertungen. Daneben haben die ambivalenten Wertungen noch einen vergleichsweise großen Anteil, während vollständig negative Bewertungen seltener sind. Nicht alle Bewertungsebenen spielen für jede Rezension eine Rolle, was die Verteilung der <em>not_mentioned</em> Werte zeigt: Am häufigsten werden Inhalt oder Autor:in in die Bewertung einbezogen, während z. B. nach moralischen oder gesellschaftlichen Kriterien seltener gewertet wird.
+        </p>
+      </div>
+
+      <div class="viz-slide">
+        <h3>Geschlechterverteilung der Autor:innen nach Jahrzehnt</h3>
+        <img src="img/author_gender_time.png" alt="Anteile von Autor:innen (male vs. female) pro Jahrzehnt">
+        <p class="viz-caption">
+          Werke weiblicher Autorinnen machen im Datenset in keinem Jahrzehnt mehr als 10&thinsp;% der rezensierten Titel aus. Die Unterrepräsentation ist damit nicht nur ausgeprägt, sondern bleibt über den gesamten Untersuchungszeitraum niedrig. Hier nicht enthaltene Werte wurden als <em>unknown</em> markiert, doch zumeist sind diese männlich auflösbar.
         </p>
       </div>
 
       <div class="viz-slide">
         <h3>Kategorien nach Geschlecht der Autor:innen</h3>
-        <img src="img/plot_category_by_gender.png" alt="Anteile von category nach author_gender">
+        <img src="img/category_gender.png" alt="Anteile von category nach author_gender">
         <p class="viz-caption">
-          Werke weiblicher Autorinnen werden fast ausschließlich der Belletristik zugerechnet (ca. 74&thinsp;%), während bei männlichen Autoren ein deutlich breiteres Genrespektrum sichtbar wird: Neben Belletristik (ca. 50&thinsp;%) finden sich Gelehrte Literatur (ca. 39&thinsp;%) und Gebrauchsliteratur (ca. 11&thinsp;%). Frauen als Autorinnen gelehrter oder wissenschaftlicher Texte tauchen im Korpus kaum auf.
+          Werke weiblicher Autorinnen werden fast ausschließlich der Belletristik zugerechnet (ca. 74&thinsp;%), sowie in einigen Fällen der Gebrauchsliteratur, während bei männlichen Autoren ein breiteres Genrespektrum sichtbar wird: Die Gelehrte Literatur (ca. 39&thinsp;%) ist hier deutlich vertretener. Frauen als Autorinnen gelehrter oder wissenschaftlicher Texte tauchen im Korpus so gut wie nicht auf.
+        </p>
+      </div>
+
+      <div class="viz-slide">
+        <h3>Entwicklung belletristischer Genres im Zeitverlauf</h3>
+        <img src="img/genre_time.png" alt="Genres im Zeitverlauf">
+        <p class="viz-caption">
+            Es zeigt sich eine anteilmäßige Zunahme der Besprechungen von Romanen gegen Ende des Untersuchungszeitraums, dagegen zeigen sich leicht rückläufige Tendenzen bei Drama und Lyrik, die spätestens in den 60er-Jahren anteilmäßig ihren Höhepunkt erlebt haben.
+        </p>
+      </div>
+
+      <div class="viz-slide">
+        <h3>Entwicklung belletristischer Genres im Zeitverlauf</h3>
+        <img src="img/reviewer_voice.png" alt="Rezensentenstimme">
+        <p class="viz-caption">
+            Insgesamt erscheinen Besprechungen in der impersonalen, dritten Person gegenüber solchen, die in der ersten Person verfasst sind, deutlich am häufigsten.
         </p>
       </div>
 
@@ -279,20 +303,16 @@
 
       <h3>Geschlecht und Sichtbarkeit</h3>
       <ul>
-        <li>Weniger als 10&thinsp;% der rezensierten Werke stammen in jedem Jahrzehnt von Autorinnen &#8211; die Unterrepräsentation ist strukturell stabil.</li>
+        <li>Weniger als 10&thinsp;% der rezensierten Werke stammen in jedem Jahrzehnt von Autorinnen &#8211; die Unterrepräsentation ist damit zeitübergreifend gegeben.</li>
         <li>Werke weiblicher Autorinnen sind fast ausschließlich der Belletristik zugeordnet, oft mit einem dezidiert weiblichen Adressatenkreis.</li>
         <li>Die Bewertungen von Werken weiblicher Autorinnen sind trotzdem vergleichbar positiv wie jene ihrer männlichen Kollegen.</li>
       </ul>
 
       <h3>Rhetorik der Wertung</h3>
       <p>
-        Rezensionen sind überwiegend in der dritten Person und impersonal gehalten &#8211; Urteile werden als behauptete Fakten präsentiert, nicht als subjektive Meinungen. Dies verstärkt die autoritative Wirkung der Kritik und entspricht einer Wertungsrhetorik, die Selektivität und Empfehlung als selbstverständlich erscheinen lässt.
+        Rezensionen sind überwiegend in der dritten Person und impersonal gehalten &#8211; Urteile werden somit als behauptete Fakten präsentiert, nicht als subjektive Meinungen. Dies verstärkt die autoritative Wirkung der Kritik, die Selektivität und Empfehlung als zentrale Funktionen hat.
       </p>
 
-      <h3>Kanonisierungseffekte</h3>
-      <p>
-        Mehrfach besprochene Autor:innen sind häufig noch heute bekannt (u. a. Storm, Dickens, Schiller). Die <em>Kölnische Zeitung</em> wirkt damit nicht nur als Spiegel zeitgenössischer Lektüreinteressen, sondern als aktive Instanz literarischer Selektion und Kanonbildung.
-      </p>
 
     </div>
 
